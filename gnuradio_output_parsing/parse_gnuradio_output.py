@@ -11,15 +11,14 @@ matplotlib.rc('font', **font)
 plt.rc('text', usetex=True)
 plt.style.use('fivethirtyeight')
 
-from gnuradio_output_functions import Header_Info, GNUradio_Data
+from gnuradio_output_functions import Header_Info, GNUradio_FFT_Data, GNUradio_time_Data
 
 file_name = 'output_testing.txt'
 fft_length = 19200
 
-
 header_info = Header_Info(file_name + '.hdr')
 
-gnuradio_data = GNUradio_Data(file_name, header_info, fft_length)
+gnuradio_data = GNUradio_FFT_Data(file_name, header_info, fft_length)
 
 print(gnuradio_data.spectral_density_df)
 

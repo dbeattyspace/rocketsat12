@@ -86,7 +86,7 @@ class Header_Info:
 		return seconds_since_start
 
 
-class GNUradio_Data:
+class GNUradio_FFT_Data:
 	def __init__(self, file_name, header_info, fft_length):
 		self.file_name = file_name
 		self.header_info = header_info
@@ -175,3 +175,82 @@ class GNUradio_Data:
 									!= self.spectral_density_df.header_number.max()]
 
 
+class GNUradio_time_Data:
+	def __init__(self, file_name, header_info):
+		self.file_name = file_name
+		self.header_info = header_info
+
+		self.radio_df = pd.DataFrame()
+
+		self.load_file_data()
+		self.populate_df()
+
+	def load_file_data(self, ):
+		with open(self.file_name, 'rb') as f:
+			self.file_data = f.read()
+
+	def populate_df(self, ):
+		self.file_byte_index = 0
+
+		self.define_struct_format()
+
+		for header in self.header_info.headers:
+			self.load_header_chunk(header)
+
+		self.propogate_time()
+
+	def define_struct_format(self, ):
+		# Making the assumption here that all files are same type
+		# It would be super weird if they weren't
+		# Add a check if feeling paranoid, I guess?
+
+		sample_header = self.header_info.headers[0]
+
+		# If working with more data types, add more options here
+		if sample_header['data_type'] == 'float':
+			format_character = 'f'
+		else:
+			Exception('Unknown data type')
+
+		datapoints_in_file = int(sample_header['data_length_bytes'] / sample_header['data_type_size_bytes'])
+
+		self.struct_format = '{}{}'.format(datapoints_in_file, format_character)
+
+	def load_header_chunk(self, header):
+		numbers_chunk = self.unpack_from_bytes(header)
+
+		header_number = np.ones(numbers_chunk.shape) * header['header_number']
+
+		time = np.empty(numbers_chunk.shape)
+		time.fill(np.nan)
+		time[0] = header['seconds_since_start']
+
+		header_df = pd.DataFrame({
+			'time' : time,
+			'dBFS' : numbers_chunk,
+			'header_number' : header_number, 
+			})
+
+		self.radio_df = self.radio_df.append(header_df)
+
+	def unpack_from_bytes(self, header):
+		chunk_start_index = self.file_byte_index
+		chunk_end_index = chunk_start_index + header['data_length_bytes']
+		self.file_byte_index = chunk_end_index
+
+		bytes_chunk = self.file_data[chunk_start_index:chunk_end_index]
+
+		numbers_chunk = struct.unpack(self.struct_format, bytes_chunk)
+
+		return numbers_chunk
+
+
+	def propogate_time(self,): 
+		self.radio_df.interpolate(inplace=True)
+
+		# This method is stupid and terrible. 
+		# Chops off last header set of data because the time isn't interpolated right
+		# Could extrapolate, but will usually chop <1% of data. 
+		self.radio_df = \
+						self.radio_df[self.radio_df.header_number \
+						!= self.radio_df.header_number.max()]
