@@ -13,19 +13,20 @@ plt.style.use('fivethirtyeight')
 
 from gnuradio_output_functions import Header_Info, GNUradio_FFT_Data, GNUradio_time_Data
 
-file_name = 'output_testing.txt'
+file_name = '../gnuradio_data/output_testing.txt'
+
 fft_length = 19200
 
-header_info = Header_Info(file_name + '.hdr')
+header_info = Header_Info(time_file_name + '.hdr')
 
-gnuradio_data = GNUradio_FFT_Data(file_name, header_info, fft_length)
+# gnuradio_data = GNUradio_FFT_Data(file_name, header_info, fft_length)
 
-print(gnuradio_data.spectral_density_df)
+# print(gnuradio_data.spectral_density_df)
 
-spectral_density_df = gnuradio_data.spectral_density_df
+# spectral_density_df = gnuradio_data.spectral_density_df
 
-plt.plot(spectral_density_df.frequency_bin, spectral_density_df.dBFS, alpha=0.1)
-plt.show()
+# plt.plot(spectral_density_df.frequency_bin, spectral_density_df.dBFS, alpha=0.1)
+# plt.show()
 
 import sys; sys.exit(0)
 

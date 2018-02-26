@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Sun Feb 25 18:06:57 2018
+# Generated: Sun Feb 25 18:30:51 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -19,9 +19,11 @@ if __name__ == '__main__':
 from PyQt4 import Qt
 from gnuradio import blocks
 from gnuradio import eng_notation
+from gnuradio import fft
 from gnuradio import gr
 from gnuradio import gr, blocks
 from gnuradio.eng_option import eng_option
+from gnuradio.fft import window
 from gnuradio.filter import firdes
 from optparse import OptionParser
 import osmosdr
@@ -63,6 +65,7 @@ class top_block(gr.top_block, Qt.QWidget):
         self.transmission_bandwidth = transmission_bandwidth = 630e3
         self.samp_rate = samp_rate = 100e6
         self.file_name = file_name = str(time.time()).split('.')[0]+'.txt'
+        self.fft_length = fft_length = 19200
         self.directory = directory = '../gnuradio_data/'
 
         ##################################################
@@ -81,6 +84,9 @@ class top_block(gr.top_block, Qt.QWidget):
         self.osmosdr_source_0.set_antenna('', 0)
         self.osmosdr_source_0.set_bandwidth(transmission_bandwidth, 0)
 
+        self.fft_vxx_0 = fft.fft_vcc(fft_length, True, (window.blackmanharris(fft_length)), True, 1)
+        self.blocks_vector_to_stream_0 = blocks.vector_to_stream(gr.sizeof_gr_complex*1, fft_length)
+        self.blocks_stream_to_vector_0 = blocks.stream_to_vector(gr.sizeof_gr_complex*1, fft_length)
         self.blocks_file_meta_sink_0 = blocks.file_meta_sink(gr.sizeof_float*1, directory + file_name, samp_rate, 1, blocks.GR_FILE_FLOAT, False, int(100e6), "", True)
         self.blocks_file_meta_sink_0.set_unbuffered(False)
         self.blocks_complex_to_mag_squared_0 = blocks.complex_to_mag_squared(1)
@@ -89,7 +95,10 @@ class top_block(gr.top_block, Qt.QWidget):
         # Connections
         ##################################################
         self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.blocks_file_meta_sink_0, 0))
-        self.connect((self.osmosdr_source_0, 0), (self.blocks_complex_to_mag_squared_0, 0))
+        self.connect((self.blocks_stream_to_vector_0, 0), (self.fft_vxx_0, 0))
+        self.connect((self.blocks_vector_to_stream_0, 0), (self.blocks_complex_to_mag_squared_0, 0))
+        self.connect((self.fft_vxx_0, 0), (self.blocks_vector_to_stream_0, 0))
+        self.connect((self.osmosdr_source_0, 0), (self.blocks_stream_to_vector_0, 0))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "top_block")
@@ -123,6 +132,12 @@ class top_block(gr.top_block, Qt.QWidget):
     def set_file_name(self, file_name):
         self.file_name = file_name
         self.blocks_file_meta_sink_0.open(self.directory + self.file_name)
+
+    def get_fft_length(self):
+        return self.fft_length
+
+    def set_fft_length(self, fft_length):
+        self.fft_length = fft_length
 
     def get_directory(self):
         return self.directory
