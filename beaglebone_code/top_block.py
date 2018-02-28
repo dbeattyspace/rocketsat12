@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Sun Feb 25 18:30:51 2018
+# Generated: Tue Feb 27 17:57:28 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -62,7 +62,7 @@ class top_block(gr.top_block, Qt.QWidget):
         # Variables
         ##################################################
         self.transmission_frequency = transmission_frequency = 50e6
-        self.transmission_bandwidth = transmission_bandwidth = 630e3
+        self.transmission_bandwidth = transmission_bandwidth = 7.5e6
         self.samp_rate = samp_rate = 100e6
         self.file_name = file_name = str(time.time()).split('.')[0]+'.txt'
         self.fft_length = fft_length = 19200
@@ -73,7 +73,7 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         self.osmosdr_source_0 = osmosdr.source( args="numchan=" + str(1) + " " + '' )
         self.osmosdr_source_0.set_sample_rate(samp_rate)
-        self.osmosdr_source_0.set_center_freq(transmission_frequency, 0)
+        self.osmosdr_source_0.set_center_freq(transmission_frequency + 10e6, 0)
         self.osmosdr_source_0.set_freq_corr(0, 0)
         self.osmosdr_source_0.set_dc_offset_mode(0, 0)
         self.osmosdr_source_0.set_iq_balance_mode(0, 0)
@@ -110,7 +110,7 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_transmission_frequency(self, transmission_frequency):
         self.transmission_frequency = transmission_frequency
-        self.osmosdr_source_0.set_center_freq(self.transmission_frequency, 0)
+        self.osmosdr_source_0.set_center_freq(self.transmission_frequency + 10e6, 0)
 
     def get_transmission_bandwidth(self):
         return self.transmission_bandwidth

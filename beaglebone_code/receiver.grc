@@ -213,7 +213,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>630e3</value>
+      <value>7.5e6</value>
     </param>
   </block>
   <block>
@@ -577,7 +577,7 @@
     </param>
     <param>
       <key>freq0</key>
-      <value>transmission_frequency</value>
+      <value>transmission_frequency + 10e6</value>
     </param>
     <param>
       <key>gain_mode0</key>
