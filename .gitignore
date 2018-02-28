@@ -1,4 +1,2 @@
 __pycache__/
-gnuradio_data/*.txt
-gnuradio_data/*.hdr
-
+datalogs

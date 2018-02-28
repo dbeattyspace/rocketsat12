@@ -1,3 +1,0 @@
-Xvfb :1 &
-xvfb-run python top_block.py 
-
