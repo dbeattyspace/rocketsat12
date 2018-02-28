@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Tue Feb 27 17:57:28 2018
+# Generated: Tue Feb 27 18:10:24 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -87,7 +87,7 @@ class top_block(gr.top_block, Qt.QWidget):
         self.fft_vxx_0 = fft.fft_vcc(fft_length, True, (window.blackmanharris(fft_length)), True, 1)
         self.blocks_vector_to_stream_0 = blocks.vector_to_stream(gr.sizeof_gr_complex*1, fft_length)
         self.blocks_stream_to_vector_0 = blocks.stream_to_vector(gr.sizeof_gr_complex*1, fft_length)
-        self.blocks_file_meta_sink_0 = blocks.file_meta_sink(gr.sizeof_float*1, directory + file_name, samp_rate, 1, blocks.GR_FILE_FLOAT, False, int(100e6), "", True)
+        self.blocks_file_meta_sink_0 = blocks.file_meta_sink(gr.sizeof_float*1, directory + file_name, samp_rate, 1, blocks.GR_FILE_FLOAT, False, int(fft_length * 10) , "", True)
         self.blocks_file_meta_sink_0.set_unbuffered(False)
         self.blocks_complex_to_mag_squared_0 = blocks.complex_to_mag_squared(1)
 
