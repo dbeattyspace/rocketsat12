@@ -24,7 +24,7 @@ hackrf_parameters = {
 
 file_index = 0
 
-while file_index < 10:
+while True:
 	hackrf_parameters['file_name'] = file_name_template.format(file_index)
 
 	hackrf_sweep_cmd = hackrf_sweep_cmd_template.format(**hackrf_parameters)
