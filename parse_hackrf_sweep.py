@@ -15,7 +15,7 @@ plt.rc('text', usetex=True)
 plt.style.use('fivethirtyeight')
 # matplotlib.rcParams['lines.linewidth'] = 1.0
 
-data_dir = 'datalogs/dataset3/'
+data_dir = 'datalogs/dataset4/'
 # date, time, hz_low, hz_high, hz_bin_width, num_samples, dB, dB, ...
 
 files = glob.glob(data_dir + '*')
@@ -31,9 +31,13 @@ for file_index, file_name in enumerate(files):
 		sweep_split = sweep_line.replace('\n', '').split(', ')
 		# timestamp = time.strptime(sweep_strip[1],'%H:%M:%S')
 		timestamp = 1
-		low_bin_hz = int(float(sweep_split[2])) 
-		high_bin_hz = int(float(sweep_split[3]))
-		bin_width_hz = int(float(sweep_split[4]))
+		try:
+			low_bin_hz = int(float(sweep_split[2])) 
+			high_bin_hz = int(float(sweep_split[3]))
+			bin_width_hz = int(float(sweep_split[4]))
+		except: 
+			print('Frowny')
+			continue
 
 		frequency_bin_lower_hz = np.arange(low_bin_hz, high_bin_hz, bin_width_hz)[:-1]
 		frequency_bin_upper_hz = np.arange(low_bin_hz, high_bin_hz, bin_width_hz)[1:]
