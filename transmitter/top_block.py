@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Tue Feb 27 21:54:03 2018
+# Generated: Thu Mar  1 17:39:39 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -60,14 +60,16 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.transmission_frequency = transmission_frequency = 50e6
-        self.samp_rate = samp_rate = 10e7
+        self.transmission_frequency = transmission_frequency = 2905e6
+        self.samp_rate = samp_rate = 2905e6
 
         ##################################################
         # Blocks
         ##################################################
+        self.sterling = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, 45e6, 1, 0)
+        self.richmond = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, -40e6, 1, 0)
         self.qtgui_freq_sink_x_0 = qtgui.freq_sink_c(
-        	1024, #size
+        	16383, #size
         	firdes.WIN_BLACKMAN_hARRIS, #wintype
         	transmission_frequency, #fc
         	samp_rate, #bw
@@ -109,6 +111,7 @@ class top_block(gr.top_block, Qt.QWidget):
 
         self._qtgui_freq_sink_x_0_win = sip.wrapinstance(self.qtgui_freq_sink_x_0.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_freq_sink_x_0_win)
+        self.philadelphia = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, -35e6, 1, 0)
         self.osmosdr_sink_0 = osmosdr.sink( args="numchan=" + str(1) + " " + '' )
         self.osmosdr_sink_0.set_sample_rate(samp_rate)
         self.osmosdr_sink_0.set_center_freq(transmission_frequency, 0)
@@ -119,21 +122,22 @@ class top_block(gr.top_block, Qt.QWidget):
         self.osmosdr_sink_0.set_antenna('', 0)
         self.osmosdr_sink_0.set_bandwidth(0, 0)
 
+        self.dover = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, -30e6, 1, 0)
         self.blocks_add_xx_1 = blocks.add_vcc(1)
+        self.blocks_add_xx_0_0 = blocks.add_vcc(1)
         self.blocks_add_xx_0 = blocks.add_vcc(1)
-        self.analog_sig_source_x_0_0_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, 5e6, 1, 0)
-        self.analog_sig_source_x_0_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, 10e6, 1, 0)
-        self.analog_sig_source_x_0 = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, 15e6, 1, 0)
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.analog_sig_source_x_0, 0), (self.blocks_add_xx_0, 0))
-        self.connect((self.analog_sig_source_x_0_0, 0), (self.blocks_add_xx_0, 1))
-        self.connect((self.analog_sig_source_x_0_0_0, 0), (self.blocks_add_xx_1, 1))
         self.connect((self.blocks_add_xx_0, 0), (self.blocks_add_xx_1, 0))
+        self.connect((self.blocks_add_xx_0_0, 0), (self.blocks_add_xx_1, 1))
         self.connect((self.blocks_add_xx_1, 0), (self.osmosdr_sink_0, 0))
         self.connect((self.blocks_add_xx_1, 0), (self.qtgui_freq_sink_x_0, 0))
+        self.connect((self.dover, 0), (self.blocks_add_xx_0_0, 0))
+        self.connect((self.philadelphia, 0), (self.blocks_add_xx_0, 1))
+        self.connect((self.richmond, 0), (self.blocks_add_xx_0, 0))
+        self.connect((self.sterling, 0), (self.blocks_add_xx_0_0, 1))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "top_block")
@@ -153,11 +157,12 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
+        self.sterling.set_sampling_freq(self.samp_rate)
+        self.richmond.set_sampling_freq(self.samp_rate)
         self.qtgui_freq_sink_x_0.set_frequency_range(self.transmission_frequency, self.samp_rate)
+        self.philadelphia.set_sampling_freq(self.samp_rate)
         self.osmosdr_sink_0.set_sample_rate(self.samp_rate)
-        self.analog_sig_source_x_0_0_0.set_sampling_freq(self.samp_rate)
-        self.analog_sig_source_x_0_0.set_sampling_freq(self.samp_rate)
-        self.analog_sig_source_x_0.set_sampling_freq(self.samp_rate)
+        self.dover.set_sampling_freq(self.samp_rate)
 
 
 def main(top_block_cls=top_block, options=None):

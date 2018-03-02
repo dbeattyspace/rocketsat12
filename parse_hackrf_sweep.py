@@ -15,7 +15,7 @@ plt.rc('text', usetex=True)
 plt.style.use('fivethirtyeight')
 # matplotlib.rcParams['lines.linewidth'] = 1.0
 
-data_dir = 'datalogs/dataset0/'
+data_dir = 'datalogs/dataset3/'
 # date, time, hz_low, hz_high, hz_bin_width, num_samples, dB, dB, ...
 
 files = glob.glob(data_dir + '*')
@@ -58,5 +58,5 @@ sweep_df['mean_freq'] = (sweep_df.frequency_bin_lower_hz + sweep_df.frequency_bi
 
 print(sweep_df)
 
-plt.plot(sweep_df.mean_freq, sweep_df.dB, 'b.')
+plt.plot(sweep_df.mean_freq, sweep_df.dB, 'b.', alpha=0.1)
 plt.show()
