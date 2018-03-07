@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Tue Mar  6 22:26:14 2018
+# Generated: Tue Mar  6 21:16:38 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -17,7 +17,6 @@ if __name__ == '__main__':
             print "Warning: failed to XInitThreads()"
 
 from PyQt4 import Qt
-from gnuradio import analog
 from gnuradio import eng_notation
 from gnuradio import gr
 from gnuradio import qtgui
@@ -59,18 +58,15 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.transmission_frequency = transmission_frequency = 2910e6
-        self.samp_rate = samp_rate = 100e6
-        self.amp = amp = 50
+        self.samp_rate = samp_rate = 32000
 
         ##################################################
         # Blocks
         ##################################################
-        self.richmond = analog.sig_source_c(samp_rate, analog.GR_COS_WAVE, 10, amp, 0)
         self.qtgui_freq_sink_x_0 = qtgui.freq_sink_c(
-        	16383, #size
+        	1024, #size
         	firdes.WIN_BLACKMAN_hARRIS, #wintype
-        	transmission_frequency, #fc
+        	100e6, #fc
         	samp_rate, #bw
         	"", #name
         	1 #number of inputs
@@ -110,50 +106,37 @@ class top_block(gr.top_block, Qt.QWidget):
 
         self._qtgui_freq_sink_x_0_win = sip.wrapinstance(self.qtgui_freq_sink_x_0.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_freq_sink_x_0_win)
-        self.osmosdr_sink_0 = osmosdr.sink( args="numchan=" + str(1) + " " + '' )
-        self.osmosdr_sink_0.set_sample_rate(samp_rate)
-        self.osmosdr_sink_0.set_center_freq(transmission_frequency, 0)
-        self.osmosdr_sink_0.set_freq_corr(0, 0)
-        self.osmosdr_sink_0.set_gain(20, 0)
-        self.osmosdr_sink_0.set_if_gain(20, 0)
-        self.osmosdr_sink_0.set_bb_gain(20, 0)
-        self.osmosdr_sink_0.set_antenna('', 0)
-        self.osmosdr_sink_0.set_bandwidth(10000000, 0)
+        self.osmosdr_source_0 = osmosdr.source( args="numchan=" + str(1) + " " + '' )
+        self.osmosdr_source_0.set_sample_rate(samp_rate)
+        self.osmosdr_source_0.set_center_freq(100e6, 0)
+        self.osmosdr_source_0.set_freq_corr(0, 0)
+        self.osmosdr_source_0.set_dc_offset_mode(0, 0)
+        self.osmosdr_source_0.set_iq_balance_mode(0, 0)
+        self.osmosdr_source_0.set_gain_mode(False, 0)
+        self.osmosdr_source_0.set_gain(20, 0)
+        self.osmosdr_source_0.set_if_gain(20, 0)
+        self.osmosdr_source_0.set_bb_gain(20, 0)
+        self.osmosdr_source_0.set_antenna('', 0)
+        self.osmosdr_source_0.set_bandwidth(0, 0)
 
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.richmond, 0), (self.osmosdr_sink_0, 0))
+        self.connect((self.osmosdr_source_0, 0), (self.qtgui_freq_sink_x_0, 0))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "top_block")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
 
-    def get_transmission_frequency(self):
-        return self.transmission_frequency
-
-    def set_transmission_frequency(self, transmission_frequency):
-        self.transmission_frequency = transmission_frequency
-        self.qtgui_freq_sink_x_0.set_frequency_range(self.transmission_frequency, self.samp_rate)
-        self.osmosdr_sink_0.set_center_freq(self.transmission_frequency, 0)
-
     def get_samp_rate(self):
         return self.samp_rate
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.richmond.set_sampling_freq(self.samp_rate)
-        self.qtgui_freq_sink_x_0.set_frequency_range(self.transmission_frequency, self.samp_rate)
-        self.osmosdr_sink_0.set_sample_rate(self.samp_rate)
-
-    def get_amp(self):
-        return self.amp
-
-    def set_amp(self, amp):
-        self.amp = amp
-        self.richmond.set_amplitude(self.amp)
+        self.qtgui_freq_sink_x_0.set_frequency_range(100e6, self.samp_rate)
+        self.osmosdr_source_0.set_sample_rate(self.samp_rate)
 
 
 def main(top_block_cls=top_block, options=None):
