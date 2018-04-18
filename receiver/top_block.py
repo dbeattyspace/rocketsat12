@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Tue Mar  6 21:16:38 2018
+# Generated: Wed Mar  7 17:27:51 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -58,16 +58,39 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 32000
+        self.samp_rate = samp_rate = 20000000
+        self.center = center = 2865000000
+        self.bandwidth = bandwidth = 20000000
 
         ##################################################
         # Blocks
         ##################################################
+        self._samp_rate_tool_bar = Qt.QToolBar(self)
+        self._samp_rate_tool_bar.addWidget(Qt.QLabel("samp_rate"+": "))
+        self._samp_rate_line_edit = Qt.QLineEdit(str(self.samp_rate))
+        self._samp_rate_tool_bar.addWidget(self._samp_rate_line_edit)
+        self._samp_rate_line_edit.returnPressed.connect(
+        	lambda: self.set_samp_rate(int(str(self._samp_rate_line_edit.text().toAscii()))))
+        self.top_layout.addWidget(self._samp_rate_tool_bar)
+        self._center_tool_bar = Qt.QToolBar(self)
+        self._center_tool_bar.addWidget(Qt.QLabel("center"+": "))
+        self._center_line_edit = Qt.QLineEdit(str(self.center))
+        self._center_tool_bar.addWidget(self._center_line_edit)
+        self._center_line_edit.returnPressed.connect(
+        	lambda: self.set_center(int(str(self._center_line_edit.text().toAscii()))))
+        self.top_layout.addWidget(self._center_tool_bar)
+        self._bandwidth_tool_bar = Qt.QToolBar(self)
+        self._bandwidth_tool_bar.addWidget(Qt.QLabel("bandwidth"+": "))
+        self._bandwidth_line_edit = Qt.QLineEdit(str(self.bandwidth))
+        self._bandwidth_tool_bar.addWidget(self._bandwidth_line_edit)
+        self._bandwidth_line_edit.returnPressed.connect(
+        	lambda: self.set_bandwidth(eval(str(self._bandwidth_line_edit.text().toAscii()))))
+        self.top_layout.addWidget(self._bandwidth_tool_bar)
         self.qtgui_freq_sink_x_0 = qtgui.freq_sink_c(
         	1024, #size
         	firdes.WIN_BLACKMAN_hARRIS, #wintype
-        	100e6, #fc
-        	samp_rate, #bw
+        	center, #fc
+        	bandwidth, #bw
         	"", #name
         	1 #number of inputs
         )
@@ -108,12 +131,12 @@ class top_block(gr.top_block, Qt.QWidget):
         self.top_layout.addWidget(self._qtgui_freq_sink_x_0_win)
         self.osmosdr_source_0 = osmosdr.source( args="numchan=" + str(1) + " " + '' )
         self.osmosdr_source_0.set_sample_rate(samp_rate)
-        self.osmosdr_source_0.set_center_freq(100e6, 0)
+        self.osmosdr_source_0.set_center_freq(center, 0)
         self.osmosdr_source_0.set_freq_corr(0, 0)
         self.osmosdr_source_0.set_dc_offset_mode(0, 0)
         self.osmosdr_source_0.set_iq_balance_mode(0, 0)
         self.osmosdr_source_0.set_gain_mode(False, 0)
-        self.osmosdr_source_0.set_gain(20, 0)
+        self.osmosdr_source_0.set_gain(10, 0)
         self.osmosdr_source_0.set_if_gain(20, 0)
         self.osmosdr_source_0.set_bb_gain(20, 0)
         self.osmosdr_source_0.set_antenna('', 0)
@@ -135,8 +158,25 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.qtgui_freq_sink_x_0.set_frequency_range(100e6, self.samp_rate)
+        Qt.QMetaObject.invokeMethod(self._samp_rate_line_edit, "setText", Qt.Q_ARG("QString", str(self.samp_rate)))
         self.osmosdr_source_0.set_sample_rate(self.samp_rate)
+
+    def get_center(self):
+        return self.center
+
+    def set_center(self, center):
+        self.center = center
+        Qt.QMetaObject.invokeMethod(self._center_line_edit, "setText", Qt.Q_ARG("QString", str(self.center)))
+        self.qtgui_freq_sink_x_0.set_frequency_range(self.center, self.bandwidth)
+        self.osmosdr_source_0.set_center_freq(self.center, 0)
+
+    def get_bandwidth(self):
+        return self.bandwidth
+
+    def set_bandwidth(self, bandwidth):
+        self.bandwidth = bandwidth
+        Qt.QMetaObject.invokeMethod(self._bandwidth_line_edit, "setText", Qt.Q_ARG("QString", repr(self.bandwidth)))
+        self.qtgui_freq_sink_x_0.set_frequency_range(self.center, self.bandwidth)
 
 
 def main(top_block_cls=top_block, options=None):

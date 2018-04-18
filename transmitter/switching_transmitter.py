@@ -1,10 +1,9 @@
 import subprocess as sp
 import numpy as np
-import time
 
 frequencies = np.array([2865e6, 2870e6, 2875e6, 2950e6], dtype=np.int)
 
-cmd = 'hackrf_transfer -f {:d} -c 100'
+cmd = 'hackrf_transfer -f {:d} -c 127'
 
 while True:
 	for freq in frequencies:

@@ -16,9 +16,9 @@ hackrf_sweep_cmd_template = 'hackrf_sweep -f {freq_min_MHz}:{freq_max_MHz} -w {f
 file_name_template = save_dir + 'hackrf_sweep_output{}.txt'
 
 hackrf_parameters = {
-	'freq_min_MHz' : 2850,
-	'freq_max_MHz' : 2970,
-	'fft_bin_width_Hz' : 10000,
+	'freq_min_MHz' : 2875,
+	'freq_max_MHz' : 2895,
+	'fft_bin_width_Hz' : 100000,
 	'gain' : 40,
 }
 

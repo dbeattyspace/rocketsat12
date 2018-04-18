@@ -82,6 +82,84 @@
     </param>
   </block>
   <block>
+    <key>variable_qtgui_entry</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>20000000</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(7, 442)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>bandwidth</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>raw</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_entry</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>2865000000</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(7, 307)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>center</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>int</value>
+    </param>
+  </block>
+  <block>
     <key>variable</key>
     <param>
       <key>comment</key>
@@ -89,7 +167,73 @@
     </param>
     <param>
       <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(7, 235)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>center</value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>2e6</value>
+    </param>
+  </block>
+  <block>
+    <key>variable_qtgui_entry</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>value</key>
+      <value>20000000</value>
+    </param>
+    <param>
+      <key>_enabled</key>
       <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(7, 371)</value>
+    </param>
+    <param>
+      <key>gui_hint</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>label</key>
+      <value></value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>int</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -105,7 +249,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>32000</value>
+      <value>32e3</value>
     </param>
   </block>
   <block>
@@ -136,7 +280,7 @@
     </param>
     <param>
       <key>freq0</key>
-      <value>100e6</value>
+      <value>center</value>
     </param>
     <param>
       <key>gain_mode0</key>
@@ -152,7 +296,7 @@
     </param>
     <param>
       <key>gain0</key>
-      <value>20</value>
+      <value>10</value>
     </param>
     <param>
       <key>ant1</key>
@@ -379,7 +523,7 @@
     </param>
     <param>
       <key>bw</key>
-      <value>samp_rate</value>
+      <value>bandwidth</value>
     </param>
     <param>
       <key>alias</key>
@@ -387,7 +531,7 @@
     </param>
     <param>
       <key>fc</key>
-      <value>100e6</value>
+      <value>center</value>
     </param>
     <param>
       <key>comment</key>
@@ -411,7 +555,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(622, 323)</value>
+      <value>(781, 323)</value>
     </param>
     <param>
       <key>gui_hint</key>
