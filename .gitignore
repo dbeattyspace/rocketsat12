@@ -1,2 +1,7 @@
 __pycache__/
 datalogs
+*.rx
+*.wav
+*.pickle
+*.txt
+

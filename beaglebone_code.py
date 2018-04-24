@@ -11,15 +11,14 @@ save_dir = 'datalogs/dataset{}/'.format(i)
 
 os.mkdir(save_dir)
 
-hackrf_sweep_cmd_template = 'hackrf_sweep -f {freq_min_MHz}:{freq_max_MHz} -w {fft_bin_width_Hz} -l {gain} -1  >| {file_name}'
+hackrf_sweep_cmd_template = 'hackrf_sweep -f {freq_min_MHz}:{freq_max_MHz} -w {fft_bin_width_Hz}  -1  >| {file_name}'
 
 file_name_template = save_dir + 'hackrf_sweep_output{}.txt'
 
 hackrf_parameters = {
-	'freq_min_MHz' : 2875,
-	'freq_max_MHz' : 2895,
+	'freq_min_MHz' : 2800,
+	'freq_max_MHz' : 2810,
 	'fft_bin_width_Hz' : 100000,
-	'gain' : 40,
 }
 
 

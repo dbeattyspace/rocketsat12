@@ -40,7 +40,7 @@ class Time_Logger:
 		return int(new_time - self.start_time)
 
 #data_dir = 'datalogs/dataset18/'
-data_dir = 'datalogs/panorama/'
+data_dir = 'datalogs/pulses_with_LNA/'
 
 files = glob.glob(data_dir + '*')
 files.sort()
@@ -105,20 +105,20 @@ plt.show()
 
 # signal_median = sweep_df.groupby('mean_freq').median().dB
 
-signal_df = sweep_df[(sweep_df.dB > (sweep_df.dB.mean() + 2 * sweep_df.dB.std()))  \
-                     & (abs(sweep_df.mean_freq - 2.890e9) < 200e3)]
+# signal_df = sweep_df[(sweep_df.dB > (sweep_df.dB.mean() + 2 * sweep_df.dB.std()))  \
+#                      & (abs(sweep_df.mean_freq - 2.890e9) < 200e3)]
 
-plt.plot(sweep_df.mean_freq / 1e6, sweep_df.dB, 'b.', alpha=0.1)
-plt.plot(signal_df.mean_freq / 1e6, signal_df.dB, 'r.', alpha=0.1)
-plt.xlabel('Frequency [ MHz ]')
-plt.ylabel('Strength [ dB ]')
-plt.tight_layout()
-plt.savefig('signal_region.png', dpi=200)
-plt.show()
+# plt.plot(sweep_df.mean_freq / 1e6, sweep_df.dB, 'b.', alpha=0.1)
+# plt.plot(signal_df.mean_freq / 1e6, signal_df.dB, 'r.', alpha=0.1)
+# plt.xlabel('Frequency [ MHz ]')
+# plt.ylabel('Strength [ dB ]')
+# plt.tight_layout()
+# plt.savefig('signal_region.png', dpi=200)
+# plt.show()
 
-plt.plot(signal_df.time, signal_df.dB, 'b.')
-plt.xlabel('Time [ seconds ]')
-plt.ylabel('Strength [ dB ]')
-plt.tight_layout()
-plt.savefig('signal_times.png', dpi=200)
-plt.show()
+# plt.plot(signal_df.time, signal_df.dB, 'b.')
+# plt.xlabel('Time [ seconds ]')
+# plt.ylabel('Strength [ dB ]')
+# plt.tight_layout()
+# plt.savefig('signal_times.png', dpi=200)
+# plt.show()
