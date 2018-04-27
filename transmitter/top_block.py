@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Fri Apr 20 17:36:42 2018
+# Generated: Wed Apr 25 16:02:13 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -17,13 +17,14 @@ if __name__ == '__main__':
             print "Warning: failed to XInitThreads()"
 
 from PyQt4 import Qt
+from gnuradio import analog
+from gnuradio import blocks
 from gnuradio import eng_notation
 from gnuradio import gr
 from gnuradio import qtgui
 from gnuradio.eng_option import eng_option
 from gnuradio.filter import firdes
 from optparse import OptionParser
-import osmosdr
 import sip
 import sys
 from gnuradio import qtgui
@@ -58,32 +59,32 @@ class top_block(gr.top_block, Qt.QWidget):
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 20e6
-        self.frequency = frequency = 2.8e9
+        self.samp_rate = samp_rate = 100
+        self.duty_cycle = duty_cycle = 0.9
 
         ##################################################
         # Blocks
         ##################################################
-        self.qtgui_time_sink_x_1 = qtgui.time_sink_c(
-        	int(100e3), #size
+        self.qtgui_time_sink_x_0_0 = qtgui.time_sink_f(
+        	int(1e3), #size
         	samp_rate, #samp_rate
         	"", #name
         	1 #number of inputs
         )
-        self.qtgui_time_sink_x_1.set_update_time(.1)
-        self.qtgui_time_sink_x_1.set_y_axis(-1, 1)
+        self.qtgui_time_sink_x_0_0.set_update_time(0.10)
+        self.qtgui_time_sink_x_0_0.set_y_axis(-1, 1)
 
-        self.qtgui_time_sink_x_1.set_y_label('Amplitude', "")
+        self.qtgui_time_sink_x_0_0.set_y_label('Amplitude', "")
 
-        self.qtgui_time_sink_x_1.enable_tags(-1, True)
-        self.qtgui_time_sink_x_1.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
-        self.qtgui_time_sink_x_1.enable_autoscale(False)
-        self.qtgui_time_sink_x_1.enable_grid(False)
-        self.qtgui_time_sink_x_1.enable_axis_labels(True)
-        self.qtgui_time_sink_x_1.enable_control_panel(False)
+        self.qtgui_time_sink_x_0_0.enable_tags(-1, True)
+        self.qtgui_time_sink_x_0_0.set_trigger_mode(qtgui.TRIG_MODE_FREE, qtgui.TRIG_SLOPE_POS, 0.0, 0, 0, "")
+        self.qtgui_time_sink_x_0_0.enable_autoscale(False)
+        self.qtgui_time_sink_x_0_0.enable_grid(True)
+        self.qtgui_time_sink_x_0_0.enable_axis_labels(True)
+        self.qtgui_time_sink_x_0_0.enable_control_panel(False)
 
         if not True:
-          self.qtgui_time_sink_x_1.disable_legend()
+          self.qtgui_time_sink_x_0_0.disable_legend()
 
         labels = ['', '', '', '', '',
                   '', '', '', '', '']
@@ -98,26 +99,23 @@ class top_block(gr.top_block, Qt.QWidget):
         alphas = [1.0, 1.0, 1.0, 1.0, 1.0,
                   1.0, 1.0, 1.0, 1.0, 1.0]
 
-        for i in xrange(2):
+        for i in xrange(1):
             if len(labels[i]) == 0:
-                if(i % 2 == 0):
-                    self.qtgui_time_sink_x_1.set_line_label(i, "Re{{Data {0}}}".format(i/2))
-                else:
-                    self.qtgui_time_sink_x_1.set_line_label(i, "Im{{Data {0}}}".format(i/2))
+                self.qtgui_time_sink_x_0_0.set_line_label(i, "Data {0}".format(i))
             else:
-                self.qtgui_time_sink_x_1.set_line_label(i, labels[i])
-            self.qtgui_time_sink_x_1.set_line_width(i, widths[i])
-            self.qtgui_time_sink_x_1.set_line_color(i, colors[i])
-            self.qtgui_time_sink_x_1.set_line_style(i, styles[i])
-            self.qtgui_time_sink_x_1.set_line_marker(i, markers[i])
-            self.qtgui_time_sink_x_1.set_line_alpha(i, alphas[i])
+                self.qtgui_time_sink_x_0_0.set_line_label(i, labels[i])
+            self.qtgui_time_sink_x_0_0.set_line_width(i, widths[i])
+            self.qtgui_time_sink_x_0_0.set_line_color(i, colors[i])
+            self.qtgui_time_sink_x_0_0.set_line_style(i, styles[i])
+            self.qtgui_time_sink_x_0_0.set_line_marker(i, markers[i])
+            self.qtgui_time_sink_x_0_0.set_line_alpha(i, alphas[i])
 
-        self._qtgui_time_sink_x_1_win = sip.wrapinstance(self.qtgui_time_sink_x_1.pyqwidget(), Qt.QWidget)
-        self.top_layout.addWidget(self._qtgui_time_sink_x_1_win)
-        self.qtgui_freq_sink_x_0 = qtgui.freq_sink_c(
-        	1024 * 10, #size
+        self._qtgui_time_sink_x_0_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0_0.pyqwidget(), Qt.QWidget)
+        self.top_layout.addWidget(self._qtgui_time_sink_x_0_0_win)
+        self.qtgui_freq_sink_x_0 = qtgui.freq_sink_f(
+        	1024, #size
         	firdes.WIN_BLACKMAN_hARRIS, #wintype
-        	frequency, #fc
+        	0, #fc
         	samp_rate, #bw
         	"", #name
         	1 #number of inputs
@@ -135,7 +133,7 @@ class top_block(gr.top_block, Qt.QWidget):
         if not True:
           self.qtgui_freq_sink_x_0.disable_legend()
 
-        if "complex" == "float" or "complex" == "msg_float":
+        if "float" == "float" or "float" == "msg_float":
           self.qtgui_freq_sink_x_0.set_plot_pos_half(not True)
 
         labels = ['', '', '', '', '',
@@ -157,25 +155,19 @@ class top_block(gr.top_block, Qt.QWidget):
 
         self._qtgui_freq_sink_x_0_win = sip.wrapinstance(self.qtgui_freq_sink_x_0.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_freq_sink_x_0_win)
-        self.osmosdr_source_0 = osmosdr.source( args="numchan=" + str(1) + " " + '' )
-        self.osmosdr_source_0.set_sample_rate(samp_rate)
-        self.osmosdr_source_0.set_center_freq(frequency, 0)
-        self.osmosdr_source_0.set_freq_corr(0, 0)
-        self.osmosdr_source_0.set_dc_offset_mode(0, 0)
-        self.osmosdr_source_0.set_iq_balance_mode(0, 0)
-        self.osmosdr_source_0.set_gain_mode(False, 0)
-        self.osmosdr_source_0.set_gain(10, 0)
-        self.osmosdr_source_0.set_if_gain(20, 0)
-        self.osmosdr_source_0.set_bb_gain(20, 0)
-        self.osmosdr_source_0.set_antenna('', 0)
-        self.osmosdr_source_0.set_bandwidth(0, 0)
-
+        self.blocks_threshold_ff_0 = blocks.threshold_ff(duty_cycle, duty_cycle, 0)
+        self.blocks_multiply_xx_0 = blocks.multiply_vff(1)
+        self.analog_sig_source_x_1 = analog.sig_source_f(samp_rate, analog.GR_COS_WAVE, 5e6, 1, 0)
+        self.analog_sig_source_x_0 = analog.sig_source_f(samp_rate, analog.GR_SAW_WAVE, 3, 1, 0)
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.osmosdr_source_0, 0), (self.qtgui_freq_sink_x_0, 0))
-        self.connect((self.osmosdr_source_0, 0), (self.qtgui_time_sink_x_1, 0))
+        self.connect((self.analog_sig_source_x_0, 0), (self.blocks_threshold_ff_0, 0))
+        self.connect((self.analog_sig_source_x_1, 0), (self.blocks_multiply_xx_0, 1))
+        self.connect((self.blocks_multiply_xx_0, 0), (self.qtgui_freq_sink_x_0, 0))
+        self.connect((self.blocks_multiply_xx_0, 0), (self.qtgui_time_sink_x_0_0, 0))
+        self.connect((self.blocks_threshold_ff_0, 0), (self.blocks_multiply_xx_0, 0))
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "top_block")
@@ -187,17 +179,18 @@ class top_block(gr.top_block, Qt.QWidget):
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.qtgui_time_sink_x_1.set_samp_rate(self.samp_rate)
-        self.qtgui_freq_sink_x_0.set_frequency_range(self.frequency, self.samp_rate)
-        self.osmosdr_source_0.set_sample_rate(self.samp_rate)
+        self.qtgui_time_sink_x_0_0.set_samp_rate(self.samp_rate)
+        self.qtgui_freq_sink_x_0.set_frequency_range(0, self.samp_rate)
+        self.analog_sig_source_x_1.set_sampling_freq(self.samp_rate)
+        self.analog_sig_source_x_0.set_sampling_freq(self.samp_rate)
 
-    def get_frequency(self):
-        return self.frequency
+    def get_duty_cycle(self):
+        return self.duty_cycle
 
-    def set_frequency(self, frequency):
-        self.frequency = frequency
-        self.qtgui_freq_sink_x_0.set_frequency_range(self.frequency, self.samp_rate)
-        self.osmosdr_source_0.set_center_freq(self.frequency, 0)
+    def set_duty_cycle(self, duty_cycle):
+        self.duty_cycle = duty_cycle
+        self.blocks_threshold_ff_0.set_hi(self.duty_cycle)
+        self.blocks_threshold_ff_0.set_lo(self.duty_cycle)
 
 
 def main(top_block_cls=top_block, options=None):

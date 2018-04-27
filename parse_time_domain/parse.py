@@ -2,9 +2,9 @@ import pickle
 
 from parse_functions import Header_Info, Time_Data
 
-header_info = Header_Info('pulses_from_wav.txt.hdr')
+header_info = Header_Info('50_duty_cycle.txt.hdr')
 
-time_data = Time_Data('pulses_from_wav.txt', header_info)
+time_data = Time_Data('50_duty_cycle.txt', header_info)
 
 print(time_data.signal_df)
 

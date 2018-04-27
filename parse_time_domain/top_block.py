@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Top Block
-# Generated: Fri Apr 20 18:21:09 2018
+# Generated: Wed Apr 25 16:31:22 2018
 ##################################################
 
 if __name__ == '__main__':
@@ -111,8 +111,8 @@ class top_block(gr.top_block, Qt.QWidget):
 
         self._qtgui_time_sink_x_0_win = sip.wrapinstance(self.qtgui_time_sink_x_0.pyqwidget(), Qt.QWidget)
         self.top_layout.addWidget(self._qtgui_time_sink_x_0_win)
-        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/dawson/Documents/space_grant/rocketsat12/parse_time_domain/pulses.wav', False)
-        self.blocks_file_meta_sink_0 = blocks.file_meta_sink(gr.sizeof_float*1, 'pulses_from_wav.txt', samp_rate, 1, blocks.GR_FILE_FLOAT, False, 1000000, "", True)
+        self.blocks_wavfile_source_0 = blocks.wavfile_source('/home/dawson/Documents/space_grant/rocketsat12/parse_time_domain/10_duty_cycle_1_freq.wav', False)
+        self.blocks_file_meta_sink_0 = blocks.file_meta_sink(gr.sizeof_float*1, '/home/dawson/Documents/space_grant/rocketsat12/parse_time_domain/10_duty_cycle_1_freq.txt', samp_rate, 1, blocks.GR_FILE_FLOAT, False, 1000000, "", True)
         self.blocks_file_meta_sink_0.set_unbuffered(False)
 
         ##################################################
