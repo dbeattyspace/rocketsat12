@@ -10,7 +10,7 @@ from mission_functions import downlink
 ## HackRF Config
 hackrf_transfer_parameters = {
     '-f' : 2893000000, # Frequency, [ Hz ]
-    '-s' : 20000000,    # Sample Rate, [ Hz ]
+    '-s' : 8000000,    # Sample Rate, [ Hz ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
 
@@ -46,10 +46,15 @@ parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_
 
 cmd = 'hackrf_transfer {}'.format(parameters)
 
-hackrf_process = sp.Popen(shlex.split(cmd), stdout=sp.PIPE)
+hackrf_process = sp.Popen(shlex.split(cmd), stdout=sp.PIPE, stderr=sp.PIPE)
 
-while hackrf_process.poll() is None:
+for line in iter(hackrf_process.stdout.readline, b''):
+    print(">>> " + line.rstrip())
+
+
+for i in range(10):
     time.sleep(1)
+    print(hackrf_process.poll())
 
 hackrf_process.kill()
 
