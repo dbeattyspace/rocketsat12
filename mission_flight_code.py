@@ -3,8 +3,16 @@ import threading
 import subprocess as sp
 import time
 import queue
+import shlex
 
 from mission_functions import downlink
+
+## HackRF Config
+hackrf_transfer_parameters = {
+    '-f' : 2893000000, # Frequency, [ Hz ]
+    '-s' : 8000000,    # Sample Rate, [ Hz ]
+    '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
+}
 
 ## File Administration
 try:
@@ -32,11 +40,21 @@ downlink_queue.put('Running Mission Code: {}'.format(start_time))
 downlink_thread = threading.Thread(target=downlink, args=(downlink_queue, log_filename, log_lock), daemon=True)
 downlink_thread.start()
 
-## Actual Data Saving
+## HackRF Data Saving
+
+parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters.keys(), hackrf_transfer_parameters.values())])
+
+cmd = 'hackrf_transfer {}'.format(parameters)
+
+hackrf_process = sp.Popen(shlex.split(cmd), stdout=sp.PIPE, stderr=sp.PIPE)
 
 for i in range(10):
-    downlink_queue.put('Gee Willikers here\'s some data: {}'.format(i ** 2))
-    time.sleep(0.5)
+    time.sleep(1)
+    output = hackrf_process.communicate()
+    print(output)
+    print(hackrf_process.poll())
+
+hackrf_process.kill()
 
 time.sleep(3)
 import sys
