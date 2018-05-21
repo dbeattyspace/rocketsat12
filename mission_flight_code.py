@@ -5,7 +5,10 @@ import time
 import queue
 import shlex
 
-from mission_functions import downlink
+from mission_functions import downlink, transfer_function
+
+## Kill other hackrf stuff if it's happening
+sp.run(shlex.split('killall -9 hackrf_transfer'))
 
 ## HackRF Config
 hackrf_transfer_parameters = {
@@ -21,6 +24,17 @@ except FileExistsError:
     # This directory should exist, just making sure
     pass
 
+# Total time beaglebone is powered on
+total_mission_time = 20 #255
+
+# Time before mission end that we want to save things and power off
+end_buffer = 15
+
+# Mission duration
+collection_duration = total_mission_time - end_buffer
+
+# Start time for measuring time elapsed and for file naming
+start_timestamp = time.time()
 start_time = time.strftime('%b_%m_%H:%M:%S')
 
 # Create directory where log file and data files will be saved
@@ -41,18 +55,11 @@ downlink_thread = threading.Thread(target=downlink, args=(downlink_queue, log_fi
 downlink_thread.start()
 
 ## HackRF Data Saving
-
 parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters.keys(), hackrf_transfer_parameters.values())])
 
-cmd = 'hackrf_transfer {}'.format(parameters)
+while (time.time() - start_timestamp) < collection_duration:
+    new_wav_file = transfer_function(parameters, downlink_queue)
+    os.rename(new_wav_file, data_directory + '/' + new_wav_file)
 
-hackrf_process = sp.Popen(shlex.split(cmd), stdout=sp.PIPE)
-
-while hackrf_process.poll() is None:
-    time.sleep(1)
-
-hackrf_process.kill()
-
-time.sleep(3)
-import sys
-sys.exit(0)
+# Won't work if ssh'd in
+# os.system('systemctl poweroff')
