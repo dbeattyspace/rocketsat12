@@ -12,8 +12,10 @@ sp.run(shlex.split('killall -9 hackrf_transfer'))
 
 ## HackRF Config
 hackrf_transfer_parameters = {
-    '-f' : 2893000000, # Frequency, [ Hz ]
-    '-s' : 20000000,    # Sample Rate, [ Hz ]
+    '-f' : 2887500000, # Frequency, [ Hz ]
+    '-s' : 8000000,    # Sample Rate, [ Hz ]
+    '-l' : 0, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
+    '-g' : 2, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
 
@@ -25,10 +27,13 @@ except FileExistsError:
     pass
 
 # Total time beaglebone is powered on
-total_mission_time = 20 #255
+total_mission_time = 60 #255
 
 # Time before mission end that we want to save things and power off
 end_buffer = 15
+
+# Creating timeout event to send signal to tell processes that time is up
+timeout_event = threading.Event()
 
 # Mission duration
 collection_duration = total_mission_time - end_buffer
@@ -38,7 +43,10 @@ start_timestamp = time.time()
 start_time = time.strftime('%b_%m_%H:%M:%S')
 
 # Create directory where log file and data files will be saved
-data_directory = 'mission_files/{}'.format(start_time)
+file_index = 0
+while os.path.exists('mission_files/datalog{}'.format(file_index)):
+    file_index += 1
+data_directory = 'mission_files/datalog{}'.format(file_index)
 os.mkdir(data_directory)
 
 # Set up the log file, initialize as empty
@@ -48,7 +56,8 @@ open(log_filename, 'w+').close()
 
 ## Downlink
 downlink_queue = queue.Queue()
-downlink_queue.put('Running Mission Code: {}'.format(start_time))
+downlink_queue.put('Running Mission Code. Data directory {}'.format(data_directory))
+downlink_queue.put('BB Start Time: {}'.format(start_time))
 
 # Start downlink thread
 downlink_thread = threading.Thread(target=downlink, args=(downlink_queue, log_filename, log_lock), daemon=True)
@@ -57,8 +66,9 @@ downlink_thread.start()
 ## HackRF Data Saving
 parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters.keys(), hackrf_transfer_parameters.values())])
 
+# Outer while loop to make sure that it doesn't re-run after time expires
 while (time.time() - start_timestamp) < collection_duration:
-    new_wav_file = transfer_function(parameters, downlink_queue)
+    new_wav_file = transfer_function(parameters, downlink_queue, start_timestamp, collection_duration)
     os.rename(new_wav_file, data_directory + '/' + new_wav_file)
 
 # Won't work if ssh'd in

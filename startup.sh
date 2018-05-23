@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-printf "\n\n$(date)\n" >> mission.log
+# If connected to internet, gives time to check time. Can remove for non-internet tests/flight
+sleep 10
 
-python3 mission_flight_code.py &
+cd /home/debian/rocketsat12
+
+printf "\n\n$(date)\n" >> /home/debian/rocketsat12/mission.log
+
+python3 /home/debian/rocketsat12/mission_flight_code.py &>> /home/debian/rocketsat12/python.log &
 
 

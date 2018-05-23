@@ -1,0 +1,322 @@
+hackrf_transfer: no process found
+Receive wav file: HackRF_20161103_111700Z_2887500kHz_IQ.wav
+call hackrf_sample_rate_set(8000000 Hz/8.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(7000000 Hz/7.000 MHz)
+call hackrf_set_freq(2887500000 Hz/2887.500 MHz)
+Stop with Ctrl-C
+ 6.8 MiB / 1.005 sec =  6.8 MiB/second
+ 8.4 MiB / 1.018 sec =  8.2 MiB/second
+ 8.1 MiB / 1.000 sec =  8.1 MiB/second
+ 8.1 MiB / 1.001 sec =  8.1 MiB/second
+Started downlink
+Running Mission Code: Nov_11_11:17:00
+
+Starting hackrf_transfer
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+hackrf_transfer: no process found
+Traceback (most recent call last):
+  File "/home/debian/rocketsat12/mission_flight_code.py", line 47, in <module>
+    os.mkdir(data_directory)
+FileExistsError: [Errno 17] File exists: 'mission_files/Nov_11_11:17:00'
+hackrf_transfer: no process found
+Receive wav file: HackRF_20180523_110519Z_2887500kHz_IQ.wav
+call hackrf_sample_rate_set(8000000 Hz/8.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(7000000 Hz/7.000 MHz)
+call hackrf_set_freq(2887500000 Hz/2887.500 MHz)
+Stop with Ctrl-C
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 8.9 MiB / 1.004 sec =  8.9 MiB/second
+ 9.4 MiB / 1.002 sec =  9.4 MiB/second
+ 8.7 MiB / 1.001 sec =  8.6 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.2 MiB / 1.002 sec = 10.2 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 7.1 MiB / 1.001 sec =  7.1 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 9.2 MiB / 1.002 sec =  9.2 MiB/second
+10.0 MiB / 1.001 sec =  9.9 MiB/second
+10.0 MiB / 1.002 sec =  9.9 MiB/second
+10.0 MiB / 1.003 sec =  9.9 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 7.9 MiB / 1.001 sec =  7.9 MiB/second
+ 9.4 MiB / 1.041 sec =  9.1 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+ 9.7 MiB / 1.002 sec =  9.7 MiB/second
+ 9.4 MiB / 1.002 sec =  9.4 MiB/second
+ 9.7 MiB / 1.003 sec =  9.7 MiB/second
+ 9.4 MiB / 1.002 sec =  9.4 MiB/second
+ 8.1 MiB / 1.001 sec =  8.1 MiB/second
+10.0 MiB / 1.053 sec =  9.5 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+ 8.4 MiB / 1.302 sec =  6.4 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+ 8.7 MiB / 1.002 sec =  8.6 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+Started downlink
+Running Mission Code. Data directory mission_files/datalogMay_05_11:05:19
+
+BB Start Time: May_05_11:05:19
+
+Starting hackrf_transfer
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+hackrf_transfer: no process found
+Receive wav file: HackRF_20180523_110718Z_2887500kHz_IQ.wav
+call hackrf_sample_rate_set(8000000 Hz/8.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(7000000 Hz/7.000 MHz)
+call hackrf_set_freq(2887500000 Hz/2887.500 MHz)
+Stop with Ctrl-C
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+10.2 MiB / 1.002 sec = 10.2 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+ 8.9 MiB / 1.001 sec =  8.9 MiB/second
+ 9.7 MiB / 1.514 sec =  6.4 MiB/second
+ 9.7 MiB / 1.013 sec =  9.6 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 9.7 MiB / 1.399 sec =  6.9 MiB/second
+ 9.4 MiB / 1.000 sec =  9.4 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+ 9.7 MiB / 1.000 sec =  9.7 MiB/second
+10.0 MiB / 1.003 sec =  9.9 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+ 8.7 MiB / 1.001 sec =  8.6 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+ 8.9 MiB / 1.007 sec =  8.8 MiB/second
+ 8.7 MiB / 1.001 sec =  8.6 MiB/second
+ 8.4 MiB / 1.001 sec =  8.4 MiB/second
+ 9.7 MiB / 1.000 sec =  9.7 MiB/second
+ 9.7 MiB / 1.000 sec =  9.7 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+ 9.4 MiB / 1.000 sec =  9.4 MiB/second
+ 8.9 MiB / 1.001 sec =  8.9 MiB/second
+ 8.9 MiB / 1.001 sec =  8.9 MiB/second
+ 8.7 MiB / 1.001 sec =  8.6 MiB/second
+ 8.9 MiB / 1.744 sec =  5.1 MiB/second
+ 9.2 MiB / 1.004 sec =  9.1 MiB/second
+ 9.4 MiB / 1.005 sec =  9.4 MiB/second
+ 9.2 MiB / 1.000 sec =  9.2 MiB/second
+10.0 MiB / 1.001 sec =  9.9 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+ 8.9 MiB / 1.002 sec =  8.9 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+ 8.4 MiB / 1.002 sec =  8.4 MiB/second
+ 3.4 MiB / 1.001 sec =  3.4 MiB/second
+ 9.7 MiB / 1.484 sec =  6.5 MiB/second
+ 9.7 MiB / 1.002 sec =  9.7 MiB/second
+Started downlink
+Running Mission Code. Data directory mission_files/datalog0
+
+BB Start Time: May_05_11:07:18
+
+Starting hackrf_transfer
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+
+Polling process
+

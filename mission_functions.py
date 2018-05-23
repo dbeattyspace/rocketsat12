@@ -29,7 +29,7 @@ def downlink(downlink_queue, log_filename, log_lock):
         time.sleep(1)
 
 
-def transfer_function(parameters, downlink_queue):
+def transfer_function(parameters, downlink_queue, start_timestamp, collection_duration):
     cmd = 'hackrf_transfer {}'.format(parameters)
 
     files_before = os.listdir()
