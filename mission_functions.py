@@ -4,6 +4,7 @@ import threading
 import os
 import subprocess as sp
 import shlex
+import signal
 
 def downlink(downlink_queue, log_filename, log_lock):
     ser = serial.Serial()
@@ -32,7 +33,6 @@ def downlink(downlink_queue, log_filename, log_lock):
 def transfer_function(parameters, downlink_queue, start_timestamp, collection_duration):
     cmd = 'hackrf_transfer {}'.format(parameters)
 
-    files_before = os.listdir()
     downlink_queue.put('Starting hackrf_transfer')
     hackrf_process = sp.Popen(shlex.split(cmd), stdout=sp.PIPE)
 
@@ -46,11 +46,6 @@ def transfer_function(parameters, downlink_queue, start_timestamp, collection_du
 
     # If the process poll returns 'not None' it will reach here
     # Will kill the process, and start over
-    hackrf_process.kill()
-
-    # Files are saved as a random .wav file, so we have to do it this weird way
-    files_after = os.listdir()
-    new_wav_file = list(set(files_after) - set(files_before))[0]
-
-    return new_wav_file
+    hackrf_process.send_signal(signal.SIGINT)
+    return
 

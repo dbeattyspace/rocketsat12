@@ -15,7 +15,7 @@ hackrf_transfer_parameters = {
     '-f' : 2887500000, # Frequency, [ Hz ]
     '-s' : 8000000,    # Sample Rate, [ Hz ]
     '-l' : 0, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
-    '-g' : 2, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
+    '-g' : 20, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
 
@@ -27,13 +27,10 @@ except FileExistsError:
     pass
 
 # Total time beaglebone is powered on
-total_mission_time = 60 #255
+total_mission_time = 255*2#change back to 255
 
 # Time before mission end that we want to save things and power off
 end_buffer = 15
-
-# Creating timeout event to send signal to tell processes that time is up
-timeout_event = threading.Event()
 
 # Mission duration
 collection_duration = total_mission_time - end_buffer
@@ -50,7 +47,7 @@ data_directory = 'mission_files/datalog{}'.format(file_index)
 os.mkdir(data_directory)
 
 # Set up the log file, initialize as empty
-log_filename = '{}/mission.log'.format(data_directory)
+log_filename = '/home/debian/rocketsat12/{}/mission.log'.format(data_directory)
 log_lock = threading.Lock()
 open(log_filename, 'w+').close()
 
@@ -68,8 +65,9 @@ parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_
 
 # Outer while loop to make sure that it doesn't re-run after time expires
 while (time.time() - start_timestamp) < collection_duration:
-    new_wav_file = transfer_function(parameters, downlink_queue, start_timestamp, collection_duration)
-    os.rename(new_wav_file, data_directory + '/' + new_wav_file)
+    os.chdir(data_directory)
+    transfer_function(parameters, downlink_queue, start_timestamp, collection_duration)
+    os.chdir('/home/debian/rocketsat12')
 
 # Won't work if ssh'd in
 # os.system('systemctl poweroff')

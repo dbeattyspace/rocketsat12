@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-# If connected to internet, gives time to check time. Can remove for non-internet tests/flight
-sleep 10
+# So permissions aren't all weird
+su debian
 
 cd /home/debian/rocketsat12
 
