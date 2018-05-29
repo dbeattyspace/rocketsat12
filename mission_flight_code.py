@@ -68,6 +68,8 @@ os.chdir(data_directory)
 while (time.time() - start_timestamp) < collection_duration:
     transfer_function(parameters, downlink_queue, start_timestamp, collection_duration)
 
+stop_time = time.strftime('%b_%m_%H:%M:%S')
+downlink_queue.put('BB Stop Time: {}'.format(stop_time))
 
 os.chdir('/home/debian/rocketsat12')
 
