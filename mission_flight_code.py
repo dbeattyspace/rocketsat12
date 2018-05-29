@@ -29,6 +29,9 @@ except FileExistsError:
 # Total time beaglebone is powered on
 total_mission_time = 255 #change back to 255
 
+# Time to wait before starting downlink of wav file
+wav_downlink_buffer = 20
+
 # Time before mission end that we want to save things and power off
 end_buffer = 15
 

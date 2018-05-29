@@ -39,13 +39,16 @@ def transfer_function(parameters, downlink_queue, start_timestamp, collection_du
     # Checks to make sure that the process is still running
     # None is good, it means it's still running
     while hackrf_process.poll() is None:
-        downlink_queue.put('Polling process')
+        current_time = time.strftime('%b_%m_%H:%M:%S')
+        downlink_queue.put('Polling process: {}'.format(current_time))
         if (time.time() - start_timestamp) > collection_duration:
             break
         time.sleep(1)
 
     # If the process poll returns 'not None' it will reach here
     # Will kill the process, and start over
+    kill_time = time.strftime('%b_%m_%H:%M:%S')
+    downlink_queue.put('Killing HackRF Process: {}'.format(kill_time))
     hackrf_process.send_signal(signal.SIGINT)
     return
 
