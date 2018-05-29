@@ -13,9 +13,9 @@ sp.run(shlex.split('killall -9 hackrf_transfer'))
 ## HackRF Config
 hackrf_transfer_parameters = {
     '-f' : 2887500000, # Frequency, [ Hz ]
-    '-s' : 8000000,    # Sample Rate, [ Hz ]
+    '-s' : 8000000,    # Sample Rate, [ Hz ] set back to 8000000
     '-l' : 0, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
-    '-g' : 20, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
+    '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
 
@@ -27,7 +27,7 @@ except FileExistsError:
     pass
 
 # Total time beaglebone is powered on
-total_mission_time = 255*2#change back to 255
+total_mission_time = 255 #change back to 255
 
 # Time before mission end that we want to save things and power off
 end_buffer = 15
@@ -63,11 +63,13 @@ downlink_thread.start()
 ## HackRF Data Saving
 parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters.keys(), hackrf_transfer_parameters.values())])
 
+os.chdir(data_directory)
 # Outer while loop to make sure that it doesn't re-run after time expires
 while (time.time() - start_timestamp) < collection_duration:
-    os.chdir(data_directory)
     transfer_function(parameters, downlink_queue, start_timestamp, collection_duration)
-    os.chdir('/home/debian/rocketsat12')
+
+
+os.chdir('/home/debian/rocketsat12')
 
 # Won't work if ssh'd in
 # os.system('systemctl poweroff')
