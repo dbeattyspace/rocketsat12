@@ -33,7 +33,7 @@ total_mission_time = 255 #change back to 255
 end_buffer = 15
 
 # Mission duration
-collection_duration = (total_mission_time - end_buffer)*4
+collection_duration = (total_mission_time - end_buffer)
 
 # Start time for measuring time elapsed and for file naming
 start_timestamp = time.time()
