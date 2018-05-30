@@ -1,38 +1,170 @@
 hackrf_transfer: no process found
-Receive wav file: HackRF_20161103_111655Z_2887500kHz_IQ.wav
 call hackrf_sample_rate_set(8000000 Hz/8.000 MHz)
 call hackrf_baseband_filter_bandwidth_set(7000000 Hz/7.000 MHz)
 call hackrf_set_freq(2887500000 Hz/2887.500 MHz)
-Started downlink
-Running Mission Code. Data directory mission_files/datalog8
-
-BB Start Time: Nov_11_11:16:55
-
-Starting hackrf_transfer
-
-Polling process
-
-Polling process
-
-Polling process
-
-Polling process
-
-Polling process
-
-Polling process
-
-Polling process
-
-Polling process
-
-Polling process
-
+samples_to_xfer 920000000/920Mio
 Stop with Ctrl-C
+445.9 MiB / 1.001 sec = 445.3 MiB/second
+11.0 MiB / 1.002 sec = 11.0 MiB/second
+10.7 MiB / 1.002 sec = 10.7 MiB/second
+10.7 MiB / 1.001 sec = 10.7 MiB/second
+ 8.4 MiB / 1.001 sec =  8.4 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+10.7 MiB / 1.000 sec = 10.7 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+11.5 MiB / 1.001 sec = 11.5 MiB/second
+10.0 MiB / 1.003 sec =  9.9 MiB/second
+ 9.2 MiB / 1.000 sec =  9.2 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+ 8.1 MiB / 1.001 sec =  8.1 MiB/second
+ 9.4 MiB / 1.002 sec =  9.4 MiB/second
+ 5.5 MiB / 1.000 sec =  5.5 MiB/second
+ 7.6 MiB / 1.159 sec =  6.6 MiB/second
+ 8.1 MiB / 1.007 sec =  8.1 MiB/second
+ 7.9 MiB / 1.001 sec =  7.9 MiB/second
+ 7.6 MiB / 1.003 sec =  7.6 MiB/second
+ 8.9 MiB / 1.002 sec =  8.9 MiB/second
+ 9.2 MiB / 1.003 sec =  9.1 MiB/second
+ 9.2 MiB / 1.002 sec =  9.2 MiB/second
+ 8.9 MiB / 49451632.000 sec =  0.0 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+ 9.2 MiB / 1.002 sec =  9.2 MiB/second
+ 9.4 MiB / 1.000 sec =  9.4 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+10.0 MiB / 1.003 sec =  9.9 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+10.0 MiB / 1.436 sec =  6.9 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+ 8.9 MiB / 1.006 sec =  8.9 MiB/second
+10.5 MiB / 1.197 sec =  8.8 MiB/second
+ 9.7 MiB / 1.003 sec =  9.7 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+ 8.7 MiB / 1.013 sec =  8.5 MiB/second
+10.5 MiB / 1.003 sec = 10.4 MiB/second
+10.2 MiB / 1.003 sec = 10.2 MiB/second
+10.2 MiB / 1.013 sec = 10.1 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+10.7 MiB / 1.001 sec = 10.7 MiB/second
+11.0 MiB / 1.003 sec = 11.0 MiB/second
+11.5 MiB / 1.001 sec = 11.5 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+ 8.1 MiB / 1.001 sec =  8.1 MiB/second
+10.2 MiB / 1.003 sec = 10.2 MiB/second
+ 9.7 MiB / 1.002 sec =  9.7 MiB/second
+10.2 MiB / 1.004 sec = 10.2 MiB/second
+10.7 MiB / 1.001 sec = 10.7 MiB/second
+10.7 MiB / 1.004 sec = 10.7 MiB/second
+10.2 MiB / 1.003 sec = 10.2 MiB/second
+10.0 MiB / 1.003 sec =  9.9 MiB/second
+10.0 MiB / 1.002 sec =  9.9 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+ 8.9 MiB / 1.001 sec =  8.9 MiB/second
+ 9.7 MiB / 1.343 sec =  7.2 MiB/second
+10.2 MiB / 1.002 sec = 10.2 MiB/second
+11.0 MiB / 1.010 sec = 10.9 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+10.2 MiB / 1.084 sec =  9.4 MiB/second
+10.0 MiB / 1.004 sec =  9.9 MiB/second
+13.6 MiB / 1.438 sec =  9.5 MiB/second
+hackrf_open() failed: HACKRF_ERROR_LIBUSB (-1000)
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+ 9.4 MiB / 1.003 sec =  9.4 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+10.2 MiB / 1.003 sec = 10.2 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+10.5 MiB / 1.002 sec = 10.5 MiB/second
+ 6.3 MiB / 1.001 sec =  6.3 MiB/second
+10.0 MiB / 1.105 sec =  9.0 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+10.0 MiB / 1.003 sec =  9.9 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+11.0 MiB / 1.001 sec = 11.0 MiB/second
+11.3 MiB / 1.001 sec = 11.3 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+10.7 MiB / 1.005 sec = 10.7 MiB/second
+ 9.7 MiB / 1.006 sec =  9.6 MiB/second
+ 9.7 MiB / 1.004 sec =  9.7 MiB/second
+ 9.7 MiB / 1.488 sec =  6.5 MiB/second
+10.5 MiB / 1.000 sec = 10.5 MiB/second
+10.7 MiB / 1.001 sec = 10.7 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+10.2 MiB / 1.003 sec = 10.2 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+ 9.4 MiB / 1.000 sec =  9.4 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+10.5 MiB / 1.002 sec = 10.5 MiB/second
+10.5 MiB / 1.010 sec = 10.4 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+10.2 MiB / 1.409 sec =  7.3 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+10.7 MiB / 1.103 sec =  9.7 MiB/second
+10.2 MiB / 1.003 sec = 10.2 MiB/second
+10.5 MiB / 1.005 sec = 10.4 MiB/second
+10.7 MiB / 1.000 sec = 10.7 MiB/second
+11.3 MiB / 1.000 sec = 11.3 MiB/second
+10.0 MiB / 1.002 sec =  9.9 MiB/second
+ 9.7 MiB / 1.004 sec =  9.7 MiB/second
+ 9.4 MiB / 1.001 sec =  9.4 MiB/second
+10.2 MiB / 1.008 sec = 10.1 MiB/second
+10.0 MiB / 1.001 sec = 10.0 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+10.0 MiB / 1.005 sec =  9.9 MiB/second
+11.0 MiB / 1.001 sec = 11.0 MiB/second
+10.7 MiB / 1.001 sec = 10.7 MiB/second
+ 9.4 MiB / 1.002 sec =  9.4 MiB/second
+ 9.7 MiB / 1.003 sec =  9.7 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+ 8.9 MiB / 1.000 sec =  8.9 MiB/second
+10.0 MiB / 1.481 sec =  6.7 MiB/second
+ 8.7 MiB / 1.002 sec =  8.6 MiB/second
+11.0 MiB / 1.004 sec = 11.0 MiB/second
+ 9.7 MiB / 1.002 sec =  9.7 MiB/second
+10.7 MiB / 1.015 sec = 10.6 MiB/second
+ 9.2 MiB / 1.002 sec =  9.2 MiB/second
+10.0 MiB / 1.002 sec =  9.9 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+10.0 MiB / 1.002 sec =  9.9 MiB/second
+ 8.4 MiB / 1.003 sec =  8.4 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+11.0 MiB / 1.001 sec = 11.0 MiB/second
+ 9.7 MiB / 1.001 sec =  9.7 MiB/second
+11.3 MiB / 1.001 sec = 11.3 MiB/second
+ 9.2 MiB / 1.001 sec =  9.2 MiB/second
+ 9.7 MiB / 1.084 sec =  9.0 MiB/second
+10.2 MiB / 1.001 sec = 10.2 MiB/second
+16.0 MiB / 1.607 sec = 10.0 MiB/second
+10.5 MiB / 1.001 sec = 10.5 MiB/second
+ 8.9 MiB / 1.002 sec =  8.9 MiB/second
+11.0 MiB / 1.001 sec = 11.0 MiB/second
+ 4.7 MiB / 1.010 sec =  4.7 MiB/second
 
-User cancel, exiting...
-Total time: 0.00018 s
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 49451776.00000 s
+hackrf_stop_rx() done
 hackrf_close() done
 hackrf_exit() done
 fclose(fd) done
 exit
+Started downlink
+Running Mission Code. Data directory mission_files/datalog0
+
+BB Start Time: Nov_11_11:16:55
+
+Filename: file0.wav
+
+Starting hackrf_transfer
+
+Filename: file1.wav
+
+Starting hackrf_transfer
+
