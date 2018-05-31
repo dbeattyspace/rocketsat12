@@ -32,28 +32,19 @@ def downlink(downlink_queue, log_filename, log_lock):
 
 def transfer_function(parameters, downlink_queue, start_timestamp, collection_duration):
     cmd = 'hackrf_transfer {}'.format(parameters)
-    start_timestamp2 = time.time()
+
     downlink_queue.put('Starting hackrf_transfer')
     hackrf_process = sp.Popen(shlex.split(cmd), stdout=sp.PIPE)
 
     # Checks to make sure that the process is still running
     # None is good, it means it's still running
-    #while hackrf_process.poll() is None:
-    #    current_timestamp = time.time()
-    #    current_time = time.strftime('%b_%m_%H:%M:%S')
-    #    downlink_queue.put('Polling process: {}'.format(current_time))
-    #    downlink_queue.put('Time elapsed: {}'.format(current_timestamp - start_timestamp))
-    #    if (current_timestamp - start_timestamp2) > collection_duration/2:
-    #        downlink_queue.put('Mission duration ended: {}'.format(current_time))
-    #        break
-    #    time.sleep(1)
+    while hackrf_process.poll() is None:
+        time.sleep(1)
 
     # If the process poll returns 'not None' it will reach here
     # Will kill the process, and start over
-    #kill_time = time.strftime('%b_%m_%H:%M:%S')
-    #downlink_queue.put('Killing Current HackRF Process: {}'.format(kill_time))
-    #hackrf_process.send_signal(signal.SIGINT)
-    time.sleep(120)
+    kill_time = time.strftime('%b_%m_%H:%M:%S')
+    downlink_queue.put('Killing Current HackRF Process: {}'.format(kill_time))
 
     return
 

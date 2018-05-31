@@ -70,20 +70,22 @@ downlink_thread.start()
 os.chdir(data_directory)
 # Outer while loop to make sure that it doesn't re-run after time expires
 wav_file_counter = 0
-while wav_file_counter < 2: #(time.time() - start_timestamp) < collection_duration:
+while wav_file_counter < 1: #(time.time() - start_timestamp) < collection_duration:
     current_wav_file = 'file{}.wav'.format(wav_file_counter)
     hackrf_transfer_parameters = {
-        '-f' : 2887500000, # Frequency, [ Hz ]
-        '-s' : 8000000,    # Sample Rate, [ Hz ] set back to 8000000
-        '-n' : 920000000,   # Number of Samples
+        '-f' : 2888000000, # Frequency, [ Hz ]
+        '-s' : 5000000,    # Sample Rate, [ Hz ] set back to 8000000
+        '-n' : 1000000000,   # Number of Samples
         '-l' : 0, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
         '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
-        '-r' : current_wav_file, # Saving method. -w is autonamed .wav file, -r needs filename argument
+	'-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
+       # '-r' : current_wav_file,  Saving method. -w is autonamed .wav file, -r needs filename argument
     }
     downlink_queue.put('Filename: {}'.format(current_wav_file))
     parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters.keys(), hackrf_transfer_parameters.values())])
     transfer_function(parameters, downlink_queue, start_timestamp, collection_duration)
     wav_file_counter += 1
+    time.sleep(1)
 
 stop_time = time.strftime('%b_%m_%H:%M:%S')
 downlink_queue.put('BB Stop Time: {}'.format(stop_time))
