@@ -9,8 +9,6 @@ from mission_functions import downlink, transfer_function
 
 ## Kill other hackrf stuff if it's happening
 sp.run(shlex.split('killall -9 hackrf_transfer'))
-#sp.run(shlex.split('hackrf_info'))
-#sp.run(shlex.split('hackrf_info'))
 
 ## File Administration
 try:
@@ -71,7 +69,7 @@ hackrf_transfer_parameters = {
 hackrf_transfer_parameters_down = {
     '-f' : 2888000000, # Frequency, [ Hz ]
     '-s' : 5000000,    # Sample Rate, [ Hz ] set back to 8000000
-    '-n' : 240000,   # Number of Samples
+    '-n' : 2400,   # Number of Samples
     '-l' : 0, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
     '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
