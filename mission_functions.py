@@ -36,7 +36,7 @@ def downlink(downlink_queue, log_filename, log_lock):
         if downlink_file == '':
             if len(current_files) > 3:
                 for file in current_files:
-                    if file.endswith('.wav') and os.path.getsize(file) == 4844:
+                    if file.endswith('.wav') and os.path.getsize(file) == 400044:
                         downlink_file = file
                         downlink_queue.put('Downlinking File: {}'.format(downlink_file))
         elif not downlinked:

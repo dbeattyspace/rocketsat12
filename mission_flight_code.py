@@ -69,7 +69,7 @@ hackrf_transfer_parameters = {
 hackrf_transfer_parameters_down = {
     '-f' : 2888000000, # Frequency, [ Hz ]
     '-s' : 5000000,    # Sample Rate, [ Hz ] set back to 8000000
-    '-n' : 2400,   # Number of Samples
+    '-n' : 200000,   # Number of Samples
     '-l' : 0, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
     '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
@@ -85,8 +85,6 @@ for i in range(0,15):
         transfer_function(parameters_down, downlink_queue, start_timestamp, collection_duration)
     else:
         transfer_function(parameters, downlink_queue, start_timestamp, collection_duration)
-# Moves back to parent directory
-os.chdir('/home/debian/rocketsat12')
 
 # Won't work if ssh'd in
 # os.system('systemctl poweroff')
