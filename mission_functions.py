@@ -10,7 +10,7 @@ import wave
 def downlink(downlink_queue, log_filename, log_lock):
     # serial setup
     ser = serial.Serial()
-    ser.port = '/dev/tty2'
+    ser.port = '/dev/ttyO0'
     ser.baudrate = 19200
     ser.timeout = None
     ser.open()

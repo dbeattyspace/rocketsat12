@@ -42,17 +42,17 @@ print('New File Created: {}'.format(filename))
 # downlinks data and writes to wav file
 while not completed:
 	while serial.inWaiting(): # waits to serial to receive data
-		print('Downlink Started: {}'.format(time.strftime('%b_%m_%H:%M:%S')))
+		print('Downlink Started: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
 		data = serial.read(400000) # 400 Kb of data
-		print('Downlink Completed: {}'.format(time.strftime('%b_%m_%H:%M:%S')))
+		print('Downlink Completed: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
 		wav_file = wave.open(filename, mode='wb') # opens wav file
 		wav_file.setnchannels(2) # 2 bytes per sample
 		wav_file.setsampwidth(1)
 		wav_file.setframerate(5000000) # 5 MHz sample rate
 		wav_file.setnframes(200000) # 2e6 frames of data
-		print('File Write Started: {}'.format(time.strftime('%b_%m_%H:%M:%S')))
+		print('File Write Started: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
 		wav_file.writeframes(data) # writes data to file
 		wav_file.writeframes(b'') # adds header to file
 		wav_file.close() # closes wav file
-		print('File Write Completed: {}'.format(time.strftime('%b_%m_%H:%M:%S')))
+		print('File Write Completed: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
 		completed = True # sets complete to true

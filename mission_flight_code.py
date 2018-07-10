@@ -64,15 +64,15 @@ os.chdir(data_directory)
 # Hack RF Parameters
 hackrf_transfer_parameters = {
     '-f' : 2888000000, # Frequency, [ Hz ]
-    '-s' : 10000000,    # Sample Rate, [ Hz ] set back to 8000000
-    '-n' : 75000000*2,   # Number of Samples
+    '-s' : 5000000,    # Sample Rate, [ Hz ] set back to 8000000
+    '-n' : 75000000,   # Number of Samples
     '-l' : 8, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
     '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
 hackrf_transfer_parameters_down = {
     '-f' : 2888000000, # Frequency, [ Hz ]
-    '-s' : 10000000,    # Sample Rate, [ Hz ] set back to 8000000
+    '-s' : 5000000,    # Sample Rate, [ Hz ] set back to 8000000
     '-n' : 200000,   # Number of Samples
     '-l' : 8, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
     '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
