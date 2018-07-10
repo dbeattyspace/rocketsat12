@@ -8,51 +8,60 @@ import signal
 import wave
 
 def downlink(downlink_queue, log_filename, log_lock):
+    # serial setup
     ser = serial.Serial()
-    ser.port = '/dev/ttyO2'
+    ser.port = '/dev/tty2'
     ser.baudrate = 19200
     ser.timeout = None
     ser.open()
 
+    # setup for file being downlinked
     downlink_file = ''
     downlinked = False
 
-    print('Started downlink')
-
+    # reading downlink queue
     while True:
         while not downlink_queue.empty():
             message = downlink_queue.get() + '\n'
-            # Add print to log file and terminal window
+            # enable to downlink messages
             #ser.write(message.encode())
 
+            # writes to log file
             with log_lock:
                 with open(log_filename, 'a') as f:
                     f.write(message)
-
-            print(message)
-
+        # gets current files in directory
         current_files = os.listdir()
 
+        # if file to downlink hasn't been found
         if downlink_file == '':
             if len(current_files) > 3:
                 for file in current_files:
+                    # look for file of correct size
                     if file.endswith('.wav') and os.path.getsize(file) == 400044:
                         downlink_file = file
-                        downlink_queue.put('Downlinking File: {}'.format(downlink_file))
+        # if found but not yet downlinked
         elif not downlinked:
-            downlink_queue.put('File Downlink Started: {}'.format(time.strftime('%b_%m_%H:%M:%S')))
+            downlink_queue.put('\nFile Downlink: {}'.format(downlink_file))
+            downlink_queue.put('File Downlink Started: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
             with wave.open(downlink_file) as wav_file:
-                downlink_queue.put('Parameters: {}'.format(wav_file.getparams()))
+                downlink_queue.put('File Downlink Parameters: {}'.format(wav_file.getparams()))
                 ser.write(wav_file.readframes(100000000))
-            downlink_queue.put('File Downlink Complete: {}'.format(time.strftime('%b_%m_%H:%M:%S')))
+            downlink_queue.put('File Downlink Complete: {}\n'.format(time.strftime('%b %d %Y %H:%M:%S')))
             downlinked = True
+
         time.sleep(1)
+    return
 
-
-def transfer_function(parameters, downlink_queue, start_timestamp, collection_duration):
+def transfer_function(parameters, downlink_queue, counter):
     cmd = 'hackrf_transfer {}'.format(parameters)
 
-    downlink_queue.put('Starting hackrf_transfer')
+    start_timestamp = time.time()
+    start_time = time.strftime('%b %d %Y %H:%M:%S')
+
+    downlink_queue.put('\nHackRF Process {} Started: {}'.format(counter,start_time))
+
+    # run hackrf transfer command
     hackrf_process = sp.Popen(shlex.split(cmd), stdout=sp.PIPE)
 
     # Checks to make sure that the process is still running
@@ -62,8 +71,18 @@ def transfer_function(parameters, downlink_queue, start_timestamp, collection_du
 
     # If the process poll returns 'not None' it will reach here
     # Will kill the process, and start over
-    kill_time = time.strftime('%b_%m_%H:%M:%S')
-    downlink_queue.put('Killing Current HackRF Process: {}'.format(kill_time))
+    stop_timestamp = time.time()
+    stop_time = time.strftime('%b %d %Y %H:%M:%S')
+    elapsed_time = stop_timestamp - start_timestamp
 
-    return
+    # checks if process was successful, returns 0 if successful
+    if elapsed_time > 5 or counter > 1:
+        downlink_queue.put('HackRF Process {} Completed: {}'.format(counter,stop_time))
+        downlink_queue.put('HackRF Process {} Time Elapsed: {} seconds'.format(counter,elapsed_time))
+        return 0
+    else:
+        downlink_queue.put('HackRF Process {} Failed: {}'.format(counter,stop_time))
+        downlink_queue.put('HackRF Process {} Time Elapsed: {} seconds'.format(counter,elapsed_time))
+        downlink_queue.put('Retrying Process...')
+        return -1
 
