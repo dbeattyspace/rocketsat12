@@ -41,7 +41,7 @@ print('New File Created: {}'.format(filename))
 
 # downlinks data and writes to wav file
 while not completed:
-	while serial.inWaiting(): # waits to serial to receive data
+	if serial.inWaiting(): # waits to serial to receive data
 		print('Downlink Started: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
 		data = serial.read(400000) # 400 Kb of data
 		print('Downlink Completed: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
