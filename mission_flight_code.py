@@ -7,6 +7,12 @@ import shlex
 
 from mission_functions import downlink, transfer_function
 
+# MISSION PARAMETERS
+frequency = 2888000000 # Hz
+samplerate = 5000000 # samples/sec
+length = 15 # sec
+numberoffiles = 15
+
 # Kill other hackrf stuff if it's happening
 sp.run(shlex.split('killall -9 hackrf_transfer'))
 
@@ -41,7 +47,7 @@ data_directory = 'mission_files/datalog{}'.format(file_index)
 os.mkdir(data_directory)
 
 # Set up the log file, initialize as empty
-log_filename = '/home/debian/rocketsat12/{}/mission.log'.format(data_directory)
+log_filename = '/home/pi/rocketsat12/{}/mission.log'.format(data_directory)
 log_lock = threading.Lock()
 open(log_filename, 'w+').close()
 
@@ -63,16 +69,16 @@ os.chdir(data_directory)
 
 # Hack RF Parameters
 hackrf_transfer_parameters = {
-    '-f' : 2888000000, # Frequency, [ Hz ]
-    '-s' : 5000000,    # Sample Rate, [ Hz ] set back to 8000000
-    '-n' : 75000000,   # Number of Samples
+    '-f' : frequency, # Frequency, [ Hz ]
+    '-s' : samplerate,    # Sample Rate, [ Hz ] set back to 8000000
+    '-n' : samplerate*length,   # Number of Samples
     '-l' : 8, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
     '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
 hackrf_transfer_parameters_down = {
-    '-f' : 2888000000, # Frequency, [ Hz ]
-    '-s' : 5000000,    # Sample Rate, [ Hz ] set back to 8000000
+    '-f' : frequency, # Frequency, [ Hz ]
+    '-s' : samplerate,    # Sample Rate, [ Hz ] set back to 8000000
     '-n' : 200000,   # Number of Samples
     '-l' : 8, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
     '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
@@ -85,7 +91,7 @@ parameters_down = ' '.join([str(key) + ' ' + str(value) for key, value in zip(ha
 
 # Calls Hack RF Transfer Function
 counter = 1
-while counter<=15: # 15 total files
+while counter<=numberoffiles: # total number of files
     if counter==2: # short file to downlink
         process = transfer_function(parameters_down, downlink_queue, counter)
         if process==0: # check if successful
@@ -108,6 +114,3 @@ print('\n\n---------------------------------------------------\n\n')
 
 # prevents exiting for final info for logs
 time.sleep(5)
-
-# Won't work if ssh'd in
-# os.system('systemctl poweroff')

@@ -10,7 +10,7 @@ import wave
 def downlink(downlink_queue, log_filename, log_lock):
     # serial setup
     ser = serial.Serial()
-    ser.port = '/dev/ttyO0'
+    ser.port = '/dev/ttyAMA0'
     ser.baudrate = 19200
     ser.timeout = None
     ser.open()
@@ -46,6 +46,10 @@ def downlink(downlink_queue, log_filename, log_lock):
             downlink_queue.put('File Downlink Started: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
             with wave.open(downlink_file) as wav_file:
                 downlink_queue.put('File Downlink Parameters: {}'.format(wav_file.getparams()))
+                ser.write(b'\x01')
+                ser.write(b'\x02')
+                ser.write(b'\x03')
+                ser.write(b'\x04')
                 ser.write(wav_file.readframes(100000000))
             downlink_queue.put('File Downlink Complete: {}\n'.format(time.strftime('%b %d %Y %H:%M:%S')))
             downlinked = True

@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 
 # So permissions aren't all weird
-su debian
+su pi
 
-./reset_usb
+cd /home/pi/rocketsat12
 
-cd /home/debian/rocketsat12
-
-python3 /home/debian/rocketsat12/mission_flight_code.py &>> /home/debian/rocketsat12/python.log &
+python3 /home/pi/rocketsat12/mission_flight_code.py &>> /home/pi/rocketsat12/python.log &
 
 
