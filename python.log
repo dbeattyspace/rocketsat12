@@ -1,0 +1,781 @@
+hackrf_transfer: no process found
+Receive wav file: HackRF_20180718_162655Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.001 sec =  9.9 MiB/second
+ 0.3 MiB / 1.000 sec =  0.3 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 16.00435 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_162711Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 200000/0Mio
+Stop with Ctrl-C
+ 0.5 MiB / 1.000 sec =  0.5 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 1.00026 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_162712Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 108.395 sec =  0.1 MiB/second
+ 8.7 MiB / 1.000 sec =  8.6 MiB/second
+10.7 MiB / 1.103 sec =  9.7 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 1.0 MiB / 1.000 sec =  1.0 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 123.50078 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_162916Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 6.3 MiB / 1.000 sec =  6.3 MiB/second
+10.7 MiB / 1.543 sec =  7.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 0.8 MiB / 1.000 sec =  0.8 MiB/second
+ 2.6 MiB / 2.466 sec =  1.1 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 19.01238 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_162935Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 6.0 MiB / 1.000 sec =  6.0 MiB/second
+10.7 MiB / 3.787 sec =  2.8 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 3.7 MiB / 1.000 sec =  3.7 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 18.79035 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_162954Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 7.6 MiB / 1.000 sec =  7.6 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+13.9 MiB / 1.389 sec = 10.0 MiB/second
+ 8.9 MiB / 1.000 sec =  8.9 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 15.39127 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163009Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 0.3 MiB / 1.000 sec =  0.3 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 16.00354 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163025Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 8.7 MiB / 1.000 sec =  8.6 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 1.8 MiB / 1.000 sec =  1.8 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 16.00352 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163041Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+ 2.9 MiB / 1.000 sec =  2.9 MiB/second
+10.7 MiB / 1.078 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 3.9 MiB / 1.000 sec =  3.9 MiB/second
+ 2.6 MiB / 1.000 sec =  2.6 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 17.08162 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163059Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 7.9 MiB / 1.000 sec =  7.9 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+ 0.8 MiB / 1.000 sec =  0.8 MiB/second
+10.7 MiB / 1.103 sec =  9.7 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 0.8 MiB / 1.000 sec =  0.8 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 17.10615 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163116Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 9.7 MiB / 1.000 sec =  9.7 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.001 sec =  9.9 MiB/second
+ 8.7 MiB / 1.000 sec =  8.6 MiB/second
+10.7 MiB / 2.948 sec =  3.6 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 1.3 MiB / 1.000 sec =  1.3 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 17.95219 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163134Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(5000000 Hz/5.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(3500000 Hz/3.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 75000000/75Mio
+Stop with Ctrl-C
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 8.4 MiB / 1.000 sec =  8.4 MiB/second
+10.7 MiB / 3.103 sec =  3.5 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+ 1.3 MiB / 1.000 sec =  1.3 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 18.10594 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+
+Flight Code Started: Jul 18 2018 16:26:55
+Data Directory: mission_files/datalog0
+
+Flight Code Completed: Jul 18 2018 16:31:52
+Flight Code Time Elapsed: 297.0776209831238 seconds
+
+
+---------------------------------------------------
+
+
+hackrf_transfer: no process found
+Receive wav file: HackRF_20180718_163258Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 2.4 MiB / 1.000 sec =  2.4 MiB/second
+12.6 MiB / 1.000 sec = 12.6 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 8.9 MiB / 1.000 sec =  8.9 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 16.00353 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163314Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 200000/0Mio
+Stop with Ctrl-C
+ 0.5 MiB / 1.000 sec =  0.5 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 1.00025 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163315Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+ 9.7 MiB / 1.000 sec =  9.7 MiB/second
+12.6 MiB / 2.361 sec =  5.3 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 5.2 MiB / 1.000 sec =  5.2 MiB/second
+12.6 MiB / 129.148 sec =  0.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+10.7 MiB / 1.000 sec = 10.7 MiB/second
+12.6 MiB / 2.076 sec =  6.1 MiB/second
+ 8.7 MiB / 1.000 sec =  8.6 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 146.58792 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163542Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+ 9.2 MiB / 1.000 sec =  9.2 MiB/second
+12.6 MiB / 2.935 sec =  4.3 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+13.6 MiB / 4.230 sec =  3.2 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+ 0.8 MiB / 1.000 sec =  0.8 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 21.16863 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163603Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+ 0.3 MiB / 1.000 sec =  0.3 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 16.00387 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163619Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.5 MiB / 1.000 sec = 11.5 MiB/second
+12.6 MiB / 1.947 sec =  6.5 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 0.3 MiB / 1.000 sec =  0.3 MiB/second
+12.6 MiB / 3.099 sec =  4.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+11.0 MiB / 1.000 sec = 11.0 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 19.04887 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163638Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+21.2 MiB / 1.767 sec = 12.0 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.5 MiB / 1.000 sec = 11.5 MiB/second
+12.6 MiB / 1.838 sec =  6.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 1.6 MiB / 1.000 sec =  1.6 MiB/second
+ 1.0 MiB / 1.234 sec =  0.9 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 17.84151 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163656Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 8.7 MiB / 1.000 sec =  8.6 MiB/second
+12.6 MiB / 2.764 sec =  4.6 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 2.9 MiB / 1.000 sec =  2.9 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 17.76679 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163714Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+18.1 MiB / 1.506 sec = 12.0 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 5.0 MiB / 1.000 sec =  5.0 MiB/second
+12.6 MiB / 2.036 sec =  6.2 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 0.3 MiB / 1.000 sec =  0.3 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 17.54523 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163732Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 3.7 MiB / 1.000 sec =  3.7 MiB/second
+12.6 MiB / 1.035 sec = 12.2 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 7.3 MiB / 1.000 sec =  7.3 MiB/second
+12.6 MiB / 1.392 sec =  9.0 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 2.6 MiB / 1.000 sec =  2.6 MiB/second
+12.6 MiB / 1.294 sec =  9.7 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 8.4 MiB / 1.000 sec =  8.4 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 19.92672 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163752Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 8.4 MiB / 1.000 sec =  8.4 MiB/second
+12.6 MiB / 1.497 sec =  8.4 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 3.1 MiB / 1.000 sec =  3.1 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 16.50073 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163808Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+10.2 MiB / 1.000 sec = 10.2 MiB/second
+10.5 MiB / 1.000 sec = 10.5 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+ 3.9 MiB / 1.000 sec =  3.9 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 16.00342 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163824Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.0 MiB / 1.000 sec = 11.0 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 0.3 MiB / 1.000 sec =  0.3 MiB/second
+12.6 MiB / 1.057 sec = 11.9 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.6 MiB / 4.002 sec =  3.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.5 MiB / 1.000 sec = 11.5 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 19.06109 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163844Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+ 9.4 MiB / 1.000 sec =  9.4 MiB/second
+12.6 MiB / 1.962 sec =  6.4 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+10.0 MiB / 1.000 sec = 10.0 MiB/second
+12.6 MiB / 1.636 sec =  7.7 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 8.1 MiB / 1.000 sec =  8.1 MiB/second
+12.6 MiB / 1.000 sec = 12.6 MiB/second
+ 2.6 MiB / 1.000 sec =  2.6 MiB/second
+12.6 MiB / 2.523 sec =  5.0 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 3.4 MiB / 1.000 sec =  3.4 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 20.12454 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+Receive wav file: HackRF_20180718_163904Z_2888000kHz_IQ.wav
+call hackrf_sample_rate_set(6000000 Hz/6.000 MHz)
+call hackrf_baseband_filter_bandwidth_set(5500000 Hz/5.500 MHz)
+call hackrf_set_freq(2888000000 Hz/2888.000 MHz)
+samples_to_xfer 90000000/90Mio
+Stop with Ctrl-C
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+11.8 MiB / 1.000 sec = 11.8 MiB/second
+ 7.1 MiB / 1.000 sec =  7.1 MiB/second
+12.6 MiB / 1.389 sec =  9.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+12.1 MiB / 1.000 sec = 12.1 MiB/second
+ 4.5 MiB / 1.000 sec =  4.5 MiB/second
+
+Exiting... hackrf_is_streaming() result: HACKRF_ERROR_STREAMING_EXIT_CALLED (-1004)
+Total time: 16.78434 s
+hackrf_close() done
+hackrf_exit() done
+fclose(fd) done
+exit
+
+Flight Code Started: Jul 18 2018 16:32:57
+Data Directory: mission_files/datalog1
+
+Flight Code Completed: Jul 18 2018 16:39:21
+Flight Code Time Elapsed: 383.25234746932983 seconds
+
+
+---------------------------------------------------
+
+

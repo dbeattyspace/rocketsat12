@@ -6,6 +6,13 @@ import subprocess as sp
 import shlex
 import signal
 import wave
+import RPi.GPIO as GPIO
+
+write_led_pin = 11
+
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BOARD)
+GPIO.setup(write_led_pin, GPIO.OUT)
 
 def downlink(downlink_queue, log_filename, log_lock):
     # serial setup
@@ -67,14 +74,18 @@ def transfer_function(parameters, downlink_queue, counter):
 
     # run hackrf transfer command
     hackrf_process = sp.Popen(shlex.split(cmd), stdout=sp.PIPE)
+    write_led_state = True
 
     # Checks to make sure that the process is still running
     # None is good, it means it's still running
     while hackrf_process.poll() is None:
-        time.sleep(1)
+        write_led_state = not write_led_state
+        GPIO.output(write_led_pin, write_led_state)
+        time.sleep(0.2)
 
     # If the process poll returns 'not None' it will reach here
     # Will kill the process, and start over
+    GPIO.output(write_led_pin, False)
     stop_timestamp = time.time()
     stop_time = time.strftime('%b %d %Y %H:%M:%S')
     elapsed_time = stop_timestamp - start_timestamp

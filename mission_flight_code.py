@@ -9,9 +9,12 @@ from mission_functions import downlink, transfer_function
 
 # MISSION PARAMETERS
 frequency = 2888000000 # Hz
-samplerate = 5000000 # samples/sec
-length = 15 # sec
-numberoffiles = 15
+samplerate = 6000000 # samples/sec
+if_gain = 8 #dB
+bb_gain = 10 #dB
+length = 20 # sec
+numberoffiles = 12
+downlink_file = 4
 
 # Kill other hackrf stuff if it's happening
 sp.run(shlex.split('killall -9 hackrf_transfer'))
@@ -22,18 +25,6 @@ try:
 except FileExistsError:
     # This directory should exist, just making sure
     pass
-
-# Total time beaglebone is powered on
-total_mission_time = 255 #change back to 255
-
-# Time to wait before starting downlink of wav file
-wav_downlink_buffer = 20
-
-# Time before mission end that we want to save things and power off
-end_buffer = 15
-
-# Mission duration
-collection_duration = (total_mission_time - end_buffer)
 
 # Start time for measuring time elapsed and for file naming
 start_timestamp = time.time()
@@ -70,18 +61,18 @@ os.chdir(data_directory)
 # Hack RF Parameters
 hackrf_transfer_parameters = {
     '-f' : frequency, # Frequency, [ Hz ]
-    '-s' : samplerate,    # Sample Rate, [ Hz ] set back to 8000000
+    '-s' : samplerate,    # Sample Rate, [ Hz ]
     '-n' : samplerate*length,   # Number of Samples
-    '-l' : 8, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
-    '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
+    '-l' : if_gain, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
+    '-g' : bb_gain, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
 hackrf_transfer_parameters_down = {
     '-f' : frequency, # Frequency, [ Hz ]
-    '-s' : samplerate,    # Sample Rate, [ Hz ] set back to 8000000
+    '-s' : samplerate,    # Sample Rate, [ Hz ]
     '-n' : 200000,   # Number of Samples
-    '-l' : 8, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
-    '-g' : 10, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
+    '-l' : if_gain, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
+    '-g' : bb_gain, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
 
@@ -89,10 +80,13 @@ hackrf_transfer_parameters_down = {
 parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters.keys(), hackrf_transfer_parameters.values())])
 parameters_down = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters_down.keys(), hackrf_transfer_parameters_down.values())])
 
+# delay after gse line
+#time.sleep(179)
+
 # Calls Hack RF Transfer Function
 counter = 1
 while counter<=numberoffiles: # total number of files
-    if counter==2: # short file to downlink
+    if counter==downlink_file: # short file to downlink
         process = transfer_function(parameters_down, downlink_queue, counter)
         if process==0: # check if successful
             counter += 1
