@@ -8,8 +8,8 @@ import shlex
 from mission_functions import downlink, transfer_function
 
 # MISSION PARAMETERS
-frequency = 2888000000 # Hz
-samplerate = 6000000 # samples/sec
+frequency = 2889000000 # Hz
+samplerate = 5000000 # samples/sec
 if_gain = 8 #dB
 bb_gain = 10 #dB
 length = 20 # sec

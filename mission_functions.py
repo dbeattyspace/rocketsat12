@@ -14,14 +14,14 @@ GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BOARD)
 GPIO.setup(write_led_pin, GPIO.OUT)
 
-def downlink(downlink_queue, log_filename, log_lock):
-    # serial setup
-    ser = serial.Serial()
-    ser.port = '/dev/ttyAMA0'
-    ser.baudrate = 19200
-    ser.timeout = None
-    ser.open()
+# serial setup
+ser = serial.Serial()
+ser.port = '/dev/ttyAMA0'
+ser.baudrate = 19200
+ser.timeout = None
+ser.open()
 
+def downlink(downlink_queue, log_filename, log_lock):
     # setup for file being downlinked
     downlink_file = ''
     downlinked = False
@@ -42,7 +42,7 @@ def downlink(downlink_queue, log_filename, log_lock):
 
         # if file to downlink hasn't been found
         if downlink_file == '':
-            if len(current_files) > 3:
+            if len(current_files) > 4:
                 for file in current_files:
                     # look for file of correct size
                     if file.endswith('.wav') and os.path.getsize(file) == 400044:
@@ -51,17 +51,22 @@ def downlink(downlink_queue, log_filename, log_lock):
         elif not downlinked:
             downlink_queue.put('\nFile Downlink: {}'.format(downlink_file))
             downlink_queue.put('File Downlink Started: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
-            with wave.open(downlink_file) as wav_file:
-                downlink_queue.put('File Downlink Parameters: {}'.format(wav_file.getparams()))
-                ser.write(b'\x01')
-                ser.write(b'\x02')
-                ser.write(b'\x03')
-                ser.write(b'\x04')
-                ser.write(wav_file.readframes(100000000))
-            downlink_queue.put('File Downlink Complete: {}\n'.format(time.strftime('%b %d %Y %H:%M:%S')))
+            downlink_file_thread = threading.Thread(name = 'downlink_wav_file', target = downlink_wav_file, args = (downlink_file,downlink_queue), daemon = True)
+            downlink_file_thread.start()
             downlinked = True
 
         time.sleep(1)
+    return
+
+def downlink_wav_file(downlink_file, downlink_queue):
+    with wave.open(downlink_file) as wav_file:
+        downlink_queue.put('File Downlink Parameters: {}'.format(wav_file.getparams()))
+        ser.write(b'\x01')
+        ser.write(b'\x02')
+        ser.write(b'\x03')
+        ser.write(b'\x04')
+        ser.write(wav_file.readframes(100000000))
+    downlink_queue.put('File Downlink Complete: {}\n'.format(time.strftime('%b %d %Y %H:%M:%S')))
     return
 
 def transfer_function(parameters, downlink_queue, counter):
