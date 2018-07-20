@@ -10,8 +10,10 @@ from mission_functions import downlink, transfer_function
 # MISSION PARAMETERS
 frequency = 2889000000 # Hz
 samplerate = 5000000 # samples/sec
-if_gain = 8 #dB
-bb_gain = 10 #dB
+if_gain = 8 # dB
+bb_gain = 10 # dB
+
+# FILE PARAMETERS
 length = 20 # sec
 numberoffiles = 12
 downlink_file = 4
@@ -80,7 +82,7 @@ hackrf_transfer_parameters_down = {
 parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters.keys(), hackrf_transfer_parameters.values())])
 parameters_down = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters_down.keys(), hackrf_transfer_parameters_down.values())])
 
-# delay after gse line
+# Delay if powering on with gse line
 #time.sleep(179)
 
 # Calls Hack RF Transfer Function
@@ -95,16 +97,16 @@ while counter<=numberoffiles: # total number of files
         if process==0: # check if successful
             counter += 1
 
-# gets end of code stop times
+# Gets end of code stop times
 stop_timestamp = time.time()
 stop_time = time.strftime('%b %d %Y %H:%M:%S')
 
-# prints process complete to log files
+# Prints process complete to log files
 downlink_queue.put('\nFlight Code Completd: {}'.format(stop_time))
 downlink_queue.put('Flight Code Time Elapsed: {} seconds'.format(stop_timestamp-start_timestamp))
 print('\nFlight Code Completed: {}'.format(stop_time))
 print('Flight Code Time Elapsed: {} seconds'.format(stop_timestamp-start_timestamp))
 print('\n\n---------------------------------------------------\n\n')
 
-# prevents exiting for final info for logs
+# Prevents exiting for final info for logs
 time.sleep(5)

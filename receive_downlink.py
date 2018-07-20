@@ -43,8 +43,9 @@ print('New File Created: {}'.format(filename))
 while not completed:
 	if serial.inWaiting(): # waits to serial to receive data
 		print('Downlink Started: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
-		startofdownlink = serial.read(4) # should read 1 2 3 4
+		startofdownlink = serial.read(6) # should read \n 1 2 3 4 \n
 		data = serial.read(400000) # 400 Kb of data
+		endofdownlink = serial.read(6) # should read \n 5 6 7 8 \n
 		print('Downlink Completed: {}'.format(time.strftime('%b %d %Y %H:%M:%S')))
 		wav_file = wave.open(filename, mode='wb') # opens wav file
 		wav_file.setnchannels(2) # 2 bytes per sample
