@@ -17,6 +17,7 @@ bb_gain = 10 # dB
 length = 20 # sec
 numberoffiles = 15
 downlink_file = 4
+downlink_complete = False
 
 # Kill other hackrf stuff if it's happening
 sp.run(shlex.split('killall -9 hackrf_transfer'))
@@ -108,10 +109,10 @@ parameters_down = ' '.join([str(key) + ' ' + str(value) for key, value in zip(ha
 # Calls Hack RF Transfer Function
 counter = 1
 while counter<=numberoffiles: # total number of files
-    if counter==downlink_file: # short file to downlink
+    if counter==downlink_file and not downlink_complete: # short file to downlink
         process = transfer_function(parameters_down, downlink_queue, counter)
         if process==0: # check if successful
-            counter += 1
+            downlink_complete = True
     else: # normal file size
         setfreq = counter%3
         if setfreq == 1:

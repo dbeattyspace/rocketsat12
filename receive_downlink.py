@@ -1,10 +1,3 @@
-##################################################################
-# Miura 2: Receive Downlinked Data (receive_downlink.py)
-# Created: 6/4/2018
-# Modified: 6/4/2018
-# Purpose: Receive downlinked data and write to wav file
-##################################################################
-
 import serial
 import time
 import glob
