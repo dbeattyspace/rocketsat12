@@ -110,7 +110,7 @@ def transfer_function(parameters, downlink_queue, counter):
     elapsed_time = stop_timestamp - start_timestamp
 
     # Checks if process was successful, returns 0 if successful
-    if elapsed_time > 5 or not (counter == 4):
+    if elapsed_time > 5 or counter == 4:
         downlink_queue.put('HackRF Process {} Completed: {}'.format(counter,stop_time))
         downlink_queue.put('HackRF Process {} Time Elapsed: {} seconds'.format(counter,elapsed_time))
         return 0
