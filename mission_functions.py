@@ -42,7 +42,7 @@ def downlink(downlink_queue, log_filename, log_lock):
 
         # If file to downlink hasn't been found
         if downlink_file == '':
-            if len(current_files) > 4:
+            if len(current_files) > 5:
                 for file in current_files:
                     # Look for file of correct size
                     if file.endswith('.wav') and os.path.getsize(file) == 400044:

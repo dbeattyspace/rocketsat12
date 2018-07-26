@@ -8,15 +8,15 @@ import shlex
 from mission_functions import downlink, transfer_function
 
 # MISSION PARAMETERS
-frequency = 2889000000 # Hz
+frequency = 2888500000 # Hz
 samplerate = 5000000 # samples/sec
 if_gain = 8 # dB
 bb_gain = 10 # dB
 
 # FILE PARAMETERS
 length = 20 # sec
-numberoffiles = 12
-downlink_file = 4
+numberoffiles = 6 #12
+downlink_file = 1 #4
 
 # Kill other hackrf stuff if it's happening
 sp.run(shlex.split('killall -9 hackrf_transfer'))
@@ -77,9 +77,29 @@ hackrf_transfer_parameters_down = {
     '-g' : bb_gain, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
     '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
 }
+hackrf_transfer_parameters_plus_one = {
+    '-f' : frequency+1e6, # Frequency, [ Hz ]
+    '-s' : samplerate,    # Sample Rate, [ Hz ]
+    '-n' : samplerate*length,   # Number of Samples
+    '-l' : if_gain, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
+    '-g' : bb_gain, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
+    '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
+}
+hackrf_transfer_parameters_minus_one = {
+    '-f' : frequency-1e6, # Frequency, [ Hz ]
+    '-s' : samplerate,    # Sample Rate, [ Hz ]
+    '-n' : samplerate*length,   # Number of Samples
+    '-l' : if_gain, # Intermediate Frequency (IF) Gain, post-mixing gain [ dB ]
+    '-g' : bb_gain, # BaseBand (BB) Gain, *IVAN FILL IN WHAT DO*, [ dB ]
+    '-w' : ' ', # Saving method. -w is autonamed .wav file, -r needs filename argument
+}
 
-# Combines Hack RF Parameters
+
+# Combines Hack RF Parametersprocess = transfer_function(parameters, downlink_queue, counter)
+
 parameters = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters.keys(), hackrf_transfer_parameters.values())])
+parameters_plus_one = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters_plus_one.keys(), hackrf_transfer_parameters_plus_one.values())])
+parameters_minus_one = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters_minus_one.keys(), hackrf_transfer_parameters_minus_one.values())])
 parameters_down = ' '.join([str(key) + ' ' + str(value) for key, value in zip(hackrf_transfer_parameters_down.keys(), hackrf_transfer_parameters_down.values())])
 
 # Delay if powering on with gse line
@@ -94,6 +114,8 @@ while counter<=numberoffiles: # total number of files
             counter += 1
     else: # normal file size
         process = transfer_function(parameters, downlink_queue, counter)
+        process = transfer_function(parameters_plus_one, downlink_queue, counter)
+        process = transfer_function(parameters_minus_one, downlink_queue, counter)
         if process==0: # check if successful
             counter += 1
 
