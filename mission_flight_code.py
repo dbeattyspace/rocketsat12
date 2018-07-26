@@ -15,8 +15,8 @@ bb_gain = 10 # dB
 
 # FILE PARAMETERS
 length = 20 # sec
-numberoffiles = 6 #12
-downlink_file = 1 #4
+numberoffiles = 15
+downlink_file = 4
 
 # Kill other hackrf stuff if it's happening
 sp.run(shlex.split('killall -9 hackrf_transfer'))
@@ -113,9 +113,13 @@ while counter<=numberoffiles: # total number of files
         if process==0: # check if successful
             counter += 1
     else: # normal file size
-        process = transfer_function(parameters, downlink_queue, counter)
-        process = transfer_function(parameters_plus_one, downlink_queue, counter)
-        process = transfer_function(parameters_minus_one, downlink_queue, counter)
+    	setfreq = counter%3
+    	if setfreq == 1:
+        	process = transfer_function(parameters, downlink_queue, counter)
+        elif setfreq == 2:
+        	process = transfer_function(parameters_plus_one, downlink_queue, counter)
+        else:
+        	process = transfer_function(parameters_minus_one, downlink_queue, counter)
         if process==0: # check if successful
             counter += 1
 
